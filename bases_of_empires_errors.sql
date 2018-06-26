@@ -1,0 +1,46 @@
+CREATE OR REPLACE PACKAGE BOE_ERRORS AS
+  REINO_O_RECURSO_NO_ENC EXCEPTION;
+  REINO_O_RECURSO_NO_ENC_NUM NUMBER := -20002;
+  PRAGMA EXCEPTION_INIT(REINO_O_RECURSO_NO_ENC,-20002);
+  
+  REC_FUERA_DE_LIMITES EXCEPTION;
+  REC_FUERA_DE_LIMITES_NUM NUMBER := -20003;
+  PRAGMA EXCEPTION_INIT(REC_FUERA_DE_LIMITES,-20003);
+  
+  FALTA_RECURSOS_PARA_TROPA EXCEPTION;
+  FALTA_RECURSOS_PARA_TROPA_NUM NUMBER := -20004;
+  PRAGMA EXCEPTION_INIT(FALTA_RECURSOS_PARA_TROPA,-20004);
+  
+  TROPA_INVALIDA EXCEPTION;
+  TROPA_INVALIDA_NUM NUMBER := -20005;
+  PRAGMA EXCEPTION_INIT(TROPA_INVALIDA,-20005);
+  
+  PROCEDURE RAISE_BOE_ERR(P_ERR_NUM NUMBER, P_ERR_MSG VARCHAR2 DEFAULT NULL);
+END;
+/
+
+CREATE OR REPLACE PACKAGE BODY BOE_ERRORS AS
+  PROCEDURE RAISE_BOE_ERR(P_ERR_NUM NUMBER, P_ERR_MSG VARCHAR2 DEFAULT NULL) AS
+    MSG VARCHAR2(2048);
+  BEGIN
+
+    CASE P_ERR_NUM
+        WHEN REINO_O_RECURSO_NO_ENC_NUM THEN
+            MSG := 'El reino o recurso no pudo ser encontrado, revise los nombres.';
+        WHEN REC_FUERA_DE_LIMITES_NUM THEN
+            MSG := 'La cantidad de algun recurso en reserva o de algun reino esta fuera de limites. Esta en un numero menor a 0 o mayor a la existencia de ese recurso.';
+        WHEN FALTA_RECURSOS_PARA_TROPA_NUM THEN
+            MSG := 'No tiene suficientes recursos para adquirir las tropas que esta intentando adquirir.';
+        WHEN TROPA_INVALIDA_NUM THEN
+            MSG := 'La tropa que desea adquirir es de el tipo(ATQ/DEF) incorrecto o no existe.';
+    END CASE;
+        
+
+    IF P_ERR_MSG IS NOT NULL THEN
+      MSG := MSG ||' - '||P_ERR_MSG;
+    END IF;
+
+    RAISE_APPLICATION_ERROR(P_ERR_NUM, MSG,TRUE);
+  END;
+END;
+/
