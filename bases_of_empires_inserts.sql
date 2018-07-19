@@ -4,8 +4,8 @@ TODO:
 Arreglar meses
 */
 INSERT ALL
-INTO REINOS (NOMBRE, MES, LOGOTIPO) VALUES 
-('Tauro','May',
+INTO REINOS (ID,NOMBRE, MES, LOGOTIPO) VALUES 
+(1,'Tauro','MAY',
 '
      Tauro
     .     .
@@ -15,8 +15,8 @@ INTO REINOS (NOMBRE, MES, LOGOTIPO) VALUES
    :       :
     `.___.'' 
 ')
-INTO REINOS (NOMBRE, MES, LOGOTIPO) VALUES 
-('Aries','JAN',
+INTO REINOS (ID,NOMBRE, MES, LOGOTIPO) VALUES 
+(2,'Aries','ABR',
 '
      Aries
    .-.   .-.
@@ -24,8 +24,8 @@ INTO REINOS (NOMBRE, MES, LOGOTIPO) VALUES
        |
        |
 ')
-INTO REINOS (NOMBRE, MES, LOGOTIPO) VALUES 
-('Geminis','JUN',
+INTO REINOS (ID,NOMBRE, MES, LOGOTIPO) VALUES 
+(3,'Geminis','JUN',
 '
     Geminis
     ._____.
@@ -34,8 +34,8 @@ INTO REINOS (NOMBRE, MES, LOGOTIPO) VALUES
      _|_|_
     ''     ''
 ')
-INTO REINOS (NOMBRE, MES, LOGOTIPO) VALUES 
-('Cancer','JUN',
+INTO REINOS (ID,NOMBRE, MES, LOGOTIPO) VALUES 
+(4,'Cancer','JUL',
 '
      Cancer
       .--.
@@ -44,8 +44,8 @@ INTO REINOS (NOMBRE, MES, LOGOTIPO) VALUES
    ''.    /
      `--''
 ')
-INTO REINOS (NOMBRE, MES, LOGOTIPO) VALUES 
-('Leo','JUN',
+INTO REINOS (ID,NOMBRE, MES, LOGOTIPO) VALUES 
+(5,'Leo','AGO',
 '
       Leo
       .--.
@@ -53,8 +53,8 @@ INTO REINOS (NOMBRE, MES, LOGOTIPO) VALUES
     (_)  /
         (_,
 ')
-INTO REINOS (NOMBRE, MES, LOGOTIPO) VALUES 
-('Virgo','JUN',
+INTO REINOS (ID,NOMBRE, MES, LOGOTIPO) VALUES 
+(6,'Virgo','SEP',
 '
        Virgo
  _
@@ -64,16 +64,16 @@ INTO REINOS (NOMBRE, MES, LOGOTIPO) VALUES
      |  |  |/
           (J
 ')
-INTO REINOS (NOMBRE, MES, LOGOTIPO) VALUES 
-('Libra','JUN',
+INTO REINOS (ID,NOMBRE, MES, LOGOTIPO) VALUES 
+(7,'Libra','OCT',
 '
        Libra
         __
    ___.''  ''.___
    ____________
 ')
-INTO REINOS (NOMBRE, MES, LOGOTIPO) VALUES 
-('Escorpio','JUN',
+INTO REINOS (ID,NOMBRE, MES, LOGOTIPO) VALUES 
+(8,'Escorpio','NOV',
 '
      Escorpio
    _
@@ -83,8 +83,8 @@ INTO REINOS (NOMBRE, MES, LOGOTIPO) VALUES
      |  |  |  ..,
            `---'':
 ')
-INTO REINOS (NOMBRE, MES, LOGOTIPO) VALUES 
-('Sagitario','JUN',
+INTO REINOS (ID,NOMBRE, MES, LOGOTIPO) VALUES 
+(9,'Sagitario','DIC',
 '
     Sagitario
           ...
@@ -93,8 +93,8 @@ INTO REINOS (NOMBRE, MES, LOGOTIPO) VALUES
     `..''
     .''`.
 ')
-INTO REINOS (NOMBRE, MES, LOGOTIPO) VALUES 
-('Capricornio','JUN',
+INTO REINOS (ID,NOMBRE, MES, LOGOTIPO) VALUES 
+(10,'Capricornio','ENE',
 '
     Capricornio
             _
@@ -103,16 +103,16 @@ INTO REINOS (NOMBRE, MES, LOGOTIPO) VALUES
       \  /   ;
        \/ __.''
 ')
-INTO REINOS (NOMBRE, MES, LOGOTIPO) VALUES 
-('Acuario','JUN',
+INTO REINOS (ID,NOMBRE, MES, LOGOTIPO) VALUES 
+(11,'Acuario','FEB',
 '
      Acuario
  .-"-._.-"-._.-
  .-"-._.-"-._.-
 ')
 
-INTO REINOS (NOMBRE, MES, LOGOTIPO) VALUES 
-('Piscis','JUN',
+INTO REINOS (ID,NOMBRE, MES, LOGOTIPO) VALUES 
+(12,'Piscis','MAR',
 '
        Piscis
      `-.    .-''
