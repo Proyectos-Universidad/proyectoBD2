@@ -45,6 +45,7 @@ TODO
 | MES |CHAR |3 |No | Mes representativo |
 | LOGOTIPO |VARCHAR2 |2000 |No | Logotipo del reino |
 | NOMBRE |VARCHAR2 |20 |No | Nombre del reino |
+| ID | NUMBER | | No | ID del Reino |
 
 ### BITACORAS
 
