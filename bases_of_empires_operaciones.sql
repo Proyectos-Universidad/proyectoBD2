@@ -4,6 +4,7 @@ CREATE OR REPLACE PACKAGE BOE AS
     PROCEDURE ENTRENAR_EJERCITO(P_TROPA TROPAS.NOMBRE%TYPE, P_CANTIDAD TROPAS_POR_REINOS.CANTIDAD%TYPE, P_REINO REINOS.NOMBRE%TYPE);
     PROCEDURE COMPRAR_DEFENSAS(P_TROPA TROPAS.NOMBRE%TYPE, P_CANTIDAD TROPAS_POR_REINOS.CANTIDAD%TYPE, P_REINO REINOS.NOMBRE%TYPE);
     PROCEDURE MONITOREAR(P_DETALLADO BOOLEAN DEFAULT FALSE);
+    PROCEDURE MEJORAR_DEFENSA(P_REINO REINOS.NOMBRE%TYPE);
 END BOE; 
 /
 
@@ -148,7 +149,30 @@ CREATE OR REPLACE PACKAGE BODY BOE AS
                 AGREGAR_CORONAS(P_REINO,10);
                 AGREGAR_ENTRADA_BITACORA (P_REINO,'VTA');
             END;
-        
+
+           PROCEDURE SUBIR_PUNTOS_DEFENSA(P_REINO REINOS.NOMBRE%TYPE)
+            AS 
+                pts_def_ori REINOS.PTS_DEF%TYPE;
+                pts_def_nue REINOS.PTS_DEF%TYPE;
+            BEGIN
+                SELECT
+                    PTS_DEF
+                INTO
+                    pts_def_ori
+                FROM
+                    REINOS
+                WHERE
+                    UPPER(NOMBRE) = UPPER(P_REINO);
+                    
+                    pts_def_nue := pts_def_ori + ((pts_def_ori/100)*10) + 500;
+                
+                UPDATE 
+                    REINOS 
+                SET 
+                    PTS_DEF = pts_def_nue 
+                WHERE 
+                    UPPER(NOMBRE) = UPPER(P_REINO); 
+            END;           
         
             PROCEDURE ENTRENAR_EJERCITO(P_TROPA TROPAS.NOMBRE%TYPE, P_CANTIDAD TROPAS_POR_REINOS.CANTIDAD%TYPE, P_REINO REINOS.NOMBRE%TYPE) AS
                 TIPO_TROPA TROPAS.TIPO%TYPE;
