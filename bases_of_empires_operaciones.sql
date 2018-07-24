@@ -5,6 +5,7 @@ CREATE OR REPLACE PACKAGE BOE AS
     PROCEDURE COMPRAR_DEFENSAS(P_TROPA TROPAS.NOMBRE%TYPE, P_CANTIDAD TROPAS_POR_REINOS.CANTIDAD%TYPE, P_REINO REINOS.NOMBRE%TYPE);
     PROCEDURE MONITOREAR(P_DETALLADO BOOLEAN DEFAULT FALSE);
     PROCEDURE MEJORAR_DEFENSA(P_REINO REINOS.NOMBRE%TYPE);
+    PROCEDURE MEJORAR_ATAQUE(P_REINO REINOS.NOMBRE%TYPE);
 END BOE; 
 /
 
@@ -138,18 +139,6 @@ CREATE OR REPLACE PACKAGE BODY BOE AS
                 RETURN chr(13)||chr(10);
             END;
 
-            PROCEDURE COMPRAR(P_RECURSO RECURSOS.NOMBRE%TYPE, P_CANTIDAD RECURSOS.RESERVA%TYPE, P_REINO REINOS.NOMBRE%TYPE) AS BEGIN
-                INTERCAMBIAR(P_RECURSO, P_CANTIDAD, P_REINO);
-                AGREGAR_CORONAS(P_REINO,5);
-                AGREGAR_ENTRADA_BITACORA (P_REINO,'CMP');
-            END;
-        
-            PROCEDURE VENDER(P_RECURSO RECURSOS.NOMBRE%TYPE, P_CANTIDAD RECURSOS.RESERVA%TYPE, P_REINO REINOS.NOMBRE%TYPE) AS BEGIN
-                INTERCAMBIAR(P_RECURSO, -P_CANTIDAD, P_REINO);
-                AGREGAR_CORONAS(P_REINO,10);
-                AGREGAR_ENTRADA_BITACORA (P_REINO,'VTA');
-            END;
-
            PROCEDURE SUBIR_PUNTOS_DEFENSA(P_REINO REINOS.NOMBRE%TYPE)
             AS 
                 pts_def_ori REINOS.PTS_DEF%TYPE;
@@ -172,7 +161,44 @@ CREATE OR REPLACE PACKAGE BODY BOE AS
                     PTS_DEF = pts_def_nue 
                 WHERE 
                     UPPER(NOMBRE) = UPPER(P_REINO); 
-            END;           
+            END; 
+
+	    procedure SUBIR_PUNTOS_ATAQUE(P_REINO REINOS.NOMBRE%TYPE)
+	    AS 
+    		pts_atq_ori REINOS.PTS_ATQ%TYPE;
+    		pts_atq_nue REINOS.PTS_ATQ%TYPE;
+	    BEGIN
+    		SELECT
+        		PTS_ATQ
+    		INTO
+        		pts_atq_ori
+    		FROM
+        		REINOS
+    		WHERE
+        		UPPER(NOMBRE) = UPPER(P_REINO);
+        
+        		pts_atq_nue := pts_atq_ori + ((pts_atq_ori/100)*10) + 300;
+    
+    		UPDATE 
+        		REINOS 
+    		SET 
+			PTS_ATQ = pts_atq_nue 
+		WHERE 
+			UPPER(NOMBRE) = UPPER(P_REINO); 
+		END;
+
+            PROCEDURE COMPRAR(P_RECURSO RECURSOS.NOMBRE%TYPE, P_CANTIDAD RECURSOS.RESERVA%TYPE, P_REINO REINOS.NOMBRE%TYPE) AS BEGIN
+                INTERCAMBIAR(P_RECURSO, P_CANTIDAD, P_REINO);
+                AGREGAR_CORONAS(P_REINO,5);
+                AGREGAR_ENTRADA_BITACORA (P_REINO,'CMP');
+            END;
+        
+            PROCEDURE VENDER(P_RECURSO RECURSOS.NOMBRE%TYPE, P_CANTIDAD RECURSOS.RESERVA%TYPE, P_REINO REINOS.NOMBRE%TYPE) AS BEGIN
+                INTERCAMBIAR(P_RECURSO, -P_CANTIDAD, P_REINO);
+                AGREGAR_CORONAS(P_REINO,10);
+                AGREGAR_ENTRADA_BITACORA (P_REINO,'VTA');
+            END;
+          
         
             PROCEDURE ENTRENAR_EJERCITO(P_TROPA TROPAS.NOMBRE%TYPE, P_CANTIDAD TROPAS_POR_REINOS.CANTIDAD%TYPE, P_REINO REINOS.NOMBRE%TYPE) AS
                 TIPO_TROPA TROPAS.TIPO%TYPE;
@@ -270,6 +296,34 @@ CREATE OR REPLACE PACKAGE BODY BOE AS
                         DBMS_OUTPUT.PUT_LINE('Transaccion:  ' ||reg_bitacora.TRANSACCION);
                         CONT_BIT := CONT_BIT + 1;
                     END LOOP;
+                END;
+
+		PROCEDURE MEJORAR_DEFENSA(P_REINO REINOS.NOMBRE%TYPE) 
+                AS 
+                    ORO_REINO RECURSOS_POR_REINOS.NOMBRE_RECURSO%TYPE := 'ORO';
+                    MADERA_REINO RECURSOS_POR_REINOS.NOMBRE_RECURSO%TYPE := 'MADERA';
+                    HIERRO_REINO RECURSOS_POR_REINOS.NOMBRE_RECURSO%TYPE := 'HIERRO';
+                BEGIN
+                    tramite_reserva(ORO_REINO, 2000, P_REINO);
+                    tramite_reserva(MADERA_REINO, 100, P_REINO);
+                    tramite_reserva(HIERRO_REINO, 150, P_REINO);
+                    subir_puntos_defensa(P_REINO);
+                    AGREGAR_CORONAS(P_REINO,40);
+                    AGREGAR_ENTRADA_BITACORA (P_REINO,'M+D');
+                END;
+                
+                PROCEDURE MEJORAR_ATAQUE(P_REINO REINOS.NOMBRE%TYPE) 
+                AS 
+                    ORO_REINO RECURSOS_POR_REINOS.NOMBRE_RECURSO%TYPE := 'ORO';
+                    MADERA_REINO RECURSOS_POR_REINOS.NOMBRE_RECURSO%TYPE := 'MADERA';
+                    HIERRO_REINO RECURSOS_POR_REINOS.NOMBRE_RECURSO%TYPE := 'HIERRO';
+                BEGIN
+                    tramite_reserva(ORO_REINO, 1500, P_REINO);
+                    tramite_reserva(MADERA_REINO, 300, P_REINO);
+                    tramite_reserva(HIERRO_REINO, 200, P_REINO);
+                    SUBIR_PUNTOS_ATAQUE(P_REINO);
+                    AGREGAR_CORONAS(P_REINO,5);
+                    AGREGAR_ENTRADA_BITACORA (P_REINO,'M+A');
                 END;
 END BOE; 
 /
