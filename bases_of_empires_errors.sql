@@ -14,6 +14,10 @@ CREATE OR REPLACE PACKAGE BOE_ERRORS AS
   TROPA_INVALIDA EXCEPTION;
   TROPA_INVALIDA_NUM NUMBER := -20005;
   PRAGMA EXCEPTION_INIT(TROPA_INVALIDA,-20005);
+
+  REC_INSUF_PARA_ATQ EXCEPTION;
+  REC_INSUF_PARA_ATQ_NUM NUMBER := -20006;
+  PRAGMA EXCEPTION_INIT(REC_INSUF_PARA_ATQ, -20006);
   
   PROCEDURE RAISE_BOE_ERR(P_ERR_NUM NUMBER, P_ERR_MSG VARCHAR2 DEFAULT NULL);
 END;
@@ -33,6 +37,8 @@ CREATE OR REPLACE PACKAGE BODY BOE_ERRORS AS
             MSG := 'No tiene suficientes recursos para adquirir las tropas que esta intentando adquirir.';
         WHEN TROPA_INVALIDA_NUM THEN
             MSG := 'La tropa que desea adquirir es de el tipo(ATQ/DEF) incorrecto o no existe.';
+	WHEN REC_INSUF_PARA_ATQ_NUM THEN
+            MSG := 'El reino no dispone de oro suficiente para atacar';
     END CASE;
         
 
