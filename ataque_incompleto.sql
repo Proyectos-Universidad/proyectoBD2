@@ -53,7 +53,7 @@ BEGIN
 		END IF;	 
    	end loop;
 	
-	PNS_ATQ := ROUND((PNS_ATQ*0.6),2) + PTS_TRP_A;
+	PNS_ATQ := ROUND((PNS_ATQ*0.6),2) + PTS_TRP_A;	
 	
 	FOR REGIS IN CUR_TROPAS_D(P_REINO_DEF) loop
 		IF(regis.nombre_tropa = 'CAÑON') THEN
@@ -63,5 +63,6 @@ BEGIN
 		END IF;	 
    	end loop;	
 	
+	PNS_DEF := ROUND((PNS_DEF*0.7),2) + PTS_TRP_D;
 END;
 
