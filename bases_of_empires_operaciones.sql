@@ -586,13 +586,38 @@ CREATE OR REPLACE PACKAGE BODY BOE AS
                     ORO_REINO RECURSOS_POR_REINOS.NOMBRE_RECURSO%TYPE := 'ORO';
                     MADERA_REINO RECURSOS_POR_REINOS.NOMBRE_RECURSO%TYPE := 'MADERA';
                     HIERRO_REINO RECURSOS_POR_REINOS.NOMBRE_RECURSO%TYPE := 'HIERRO';
+                    CANT_ORO  RECURSOS_POR_REINOS.CANTIDAD%TYPE;
+                    CANT_MAD  RECURSOS_POR_REINOS.CANTIDAD%TYPE;
+                    CANT_HIE  RECURSOS_POR_REINOS.CANTIDAD%TYPE;
                 BEGIN
+                    SELECT CANTIDAD
+                    INTO CANT_ORO
+                    FROM RECURSOS_POR_REINOS
+                    WHERE UPPER(NOMBRE_REINO) = UPPER(P_REINO) AND NOMBRE_RECURSO = ORO_REINO;
+                    
+                    SELECT CANTIDAD
+                    INTO CANT_HIE
+                    FROM RECURSOS_POR_REINOS
+                    WHERE UPPER(NOMBRE_REINO) = UPPER(P_REINO) AND NOMBRE_RECURSO = CANT_HIE;
+                    
+                    SELECT CANTIDAD
+                    INTO CANT_MAD
+                    FROM RECURSOS_POR_REINOS
+                    WHERE UPPER(NOMBRE_REINO) = UPPER(P_REINO) AND NOMBRE_RECURSO = MADERA_REINO;
+                    
+                    IF(CANT_ORO < 2000 OR CANT_MAD < 100 OR CANT_HIE < 150) THEN
+                        BOE_ERRORS.RAISE_BOE_ERR(BOE_ERRORS.REC_INSUF_TRANSC_NUM);    
+                    END IF;
+                    
                     tramite_reserva(ORO_REINO, 2000, P_REINO);
                     tramite_reserva(MADERA_REINO, 100, P_REINO);
                     tramite_reserva(HIERRO_REINO, 150, P_REINO);
                     subir_puntos_defensa(P_REINO);
                     AGREGAR_CORONAS(P_REINO,40);
                     AGREGAR_ENTRADA_BITACORA (P_REINO,'M+D');
+                    EXCEPTION
+                    WHEN NO_DATA_FOUND THEN
+                    BOE_ERRORS.RAISE_BOE_ERR(BOE_ERRORS.REINO_O_RECURSO_NO_ENC_NUM);
                 END;
                 
                 PROCEDURE MEJORAR_ATAQUE(P_REINO REINOS.NOMBRE%TYPE) 
@@ -600,13 +625,40 @@ CREATE OR REPLACE PACKAGE BODY BOE AS
                     ORO_REINO RECURSOS_POR_REINOS.NOMBRE_RECURSO%TYPE := 'ORO';
                     MADERA_REINO RECURSOS_POR_REINOS.NOMBRE_RECURSO%TYPE := 'MADERA';
                     HIERRO_REINO RECURSOS_POR_REINOS.NOMBRE_RECURSO%TYPE := 'HIERRO';
+                    CANT_ORO  RECURSOS_POR_REINOS.CANTIDAD%TYPE;
+                    CANT_MAD  RECURSOS_POR_REINOS.CANTIDAD%TYPE;
+                    CANT_HIE  RECURSOS_POR_REINOS.CANTIDAD%TYPE; 
                 BEGIN
+                    SELECT CANTIDAD
+                    INTO CANT_ORO
+                    FROM RECURSOS_POR_REINOS
+                    WHERE UPPER(NOMBRE_REINO) = UPPER(P_REINO) AND NOMBRE_RECURSO = ORO_REINO;
+                    
+                    SELECT CANTIDAD
+                    INTO CANT_HIE
+                    FROM RECURSOS_POR_REINOS
+                    WHERE UPPER(NOMBRE_REINO) = UPPER(P_REINO) AND NOMBRE_RECURSO = CANT_HIE;
+                    
+                    SELECT CANTIDAD
+                    INTO CANT_MAD
+                    FROM RECURSOS_POR_REINOS
+                    WHERE UPPER(NOMBRE_REINO) = UPPER(P_REINO) AND NOMBRE_RECURSO = MADERA_REINO;
+                    
+                    IF(CANT_ORO < 1500 OR CANT_MAD < 300 OR CANT_HIE < 250) THEN
+                        BOE_ERRORS.RAISE_BOE_ERR(BOE_ERRORS.REC_INSUF_TRANSC_NUM);    
+                    END IF;                
+                
                     tramite_reserva(ORO_REINO, 1500, P_REINO);
                     tramite_reserva(MADERA_REINO, 300, P_REINO);
                     tramite_reserva(HIERRO_REINO, 200, P_REINO);
                     SUBIR_PUNTOS_ATAQUE(P_REINO);
                     AGREGAR_CORONAS(P_REINO,5);
                     AGREGAR_ENTRADA_BITACORA (P_REINO,'M+A');
+
+                    EXCEPTION
+                    WHEN NO_DATA_FOUND THEN
+                    BOE_ERRORS.RAISE_BOE_ERR(BOE_ERRORS.REINO_O_RECURSO_NO_ENC_NUM);
+                    
                 END;
 
 		PROCEDURE ATACAR_REINO (
@@ -683,7 +735,10 @@ CREATE OR REPLACE PACKAGE BODY BOE AS
             
             AGREGAR_CORONAS(P_REINO_ATQ,2);
             AGREGAR_ENTRADA_BITACORA (P_REINO_ATQ,'ATK');
-	
+	    
+            EXCEPTION
+                WHEN NO_DATA_FOUND THEN
+                    BOE_ERRORS.RAISE_BOE_ERR(BOE_ERRORS.REINO_O_RECURSO_NO_ENC_NUM);          		
         END;
 END BOE; 
 /
