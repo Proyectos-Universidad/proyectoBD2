@@ -598,7 +598,7 @@ CREATE OR REPLACE PACKAGE BODY BOE AS
                     SELECT CANTIDAD
                     INTO CANT_HIE
                     FROM RECURSOS_POR_REINOS
-                    WHERE UPPER(NOMBRE_REINO) = UPPER(P_REINO) AND NOMBRE_RECURSO = CANT_HIE;
+                    WHERE UPPER(NOMBRE_REINO) = UPPER(P_REINO) AND NOMBRE_RECURSO = HIERRO_REINO;
                     
                     SELECT CANTIDAD
                     INTO CANT_MAD
@@ -637,7 +637,7 @@ CREATE OR REPLACE PACKAGE BODY BOE AS
                     SELECT CANTIDAD
                     INTO CANT_HIE
                     FROM RECURSOS_POR_REINOS
-                    WHERE UPPER(NOMBRE_REINO) = UPPER(P_REINO) AND NOMBRE_RECURSO = CANT_HIE;
+                    WHERE UPPER(NOMBRE_REINO) = UPPER(P_REINO) AND NOMBRE_RECURSO = HIERRO_REINO;
                     
                     SELECT CANTIDAD
                     INTO CANT_MAD
