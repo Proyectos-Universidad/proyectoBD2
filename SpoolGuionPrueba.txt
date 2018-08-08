@@ -38,7 +38,6 @@ SQL> execute BOE.ENTRENAR_EJERCITO('Caballero',10,'Sagitario');
 
 PL/SQL procedure successfully completed.
 
-SQL> 
 SQL> execute BOE.COMPRAR('Madera', 15000, 'Sagitario');
 
 PL/SQL procedure successfully completed.
@@ -113,22 +112,18 @@ ORA-06512: at "SYSTEM.BOE", line 491
 ORA-06512: at line 1 
 
 
+SQL> execute BOE.MEJORAR_DEFENSA('Tauro');
+
+PL/SQL procedure successfully completed.
+
 SQL> execute BOE.ENTRENAR_EJERCITO('Piquero',60,'Aries');
 
 PL/SQL procedure successfully completed.
 
 SQL> execute BOE.MEJORAR_ATAQUE('Aries');
-BEGIN BOE.MEJORAR_ATAQUE('Aries'); END;
 
-*
-ERROR at line 1:
-ORA-00001: unique constraint (SYSTEM.PK_BITACORA) violated 
-ORA-06512: at "SYSTEM.BOE", line 81 
-ORA-06512: at "SYSTEM.BOE", line 643 
-ORA-06512: at line 1 
+PL/SQL procedure successfully completed.
 
-
-SQL> --
 SQL> execute BOE.ENTRENAR_EJERCITO('Arquera',50,'Piscis');
 
 PL/SQL procedure successfully completed.
@@ -137,19 +132,15 @@ SQL> execute BOE.ENTRENAR_EJERCITO('Piquero',50,'Piscis');
 
 PL/SQL procedure successfully completed.
 
-SQL> execute BOE.MEJORAR_ATAQUE('Aries');
-
-PL/SQL procedure successfully completed.
-
 SQL> execute BOE.MONITOREAR;
 -------------ORO--------------                                                  
-Reserva: 5136740                                                                
+Reserva: 5138740                                                                
 Precio   1                                                                      
 -----------HIERRO-------------                                                  
-Reserva: 2037200                                                                
+Reserva: 2037350                                                                
 Precio   3.93                                                                   
 -----------MADERA-------------                                                  
-Reserva: 1993900                                                                
+Reserva: 1994000                                                                
 Precio   2.03                                                                   
 --------------------------RANKING---------------------------                    
 -----------------------------1------------------------------                    
@@ -163,13 +154,13 @@ Oro coronas:       100
 Total:             88070                                                        
 -----------------------------2------------------------------                    
 Reino:             Tauro                                                        
-Oro:               40000                                                        
+Oro:               38000                                                        
 Oro tropas:        0                                                            
-Oro recursos:      39950                                                        
+Oro recursos:      39553.75                                                     
 Oro PTS ataque:    0                                                            
-Oro PTS defensa:   0                                                            
-Oro coronas:       0                                                            
-Total:             79950                                                        
+Oro PTS defensa:   500                                                          
+Oro coronas:       400                                                          
+Total:             78453.75                                                     
 -----------------------------3------------------------------                    
 Reino:             Leo                                                          
 Oro:               32000                                                        
@@ -263,120 +254,136 @@ Total:             36485
 -------------------------BITACORA---------------------------                    
 -----------------------------1------------------------------                    
 Reino:        Acuario                                                           
-Fecha y hora: 2018-08-05 12:33                                                  
+Fecha y hora: 2018-08-07 08:02                                                  
 Recursos:     HIERRO:10000 MADERA:40000 ORO:0                                   
 Coronas:      5                                                                 
 Transaccion:  CMP                                                               
 -----------------------------2------------------------------                    
 Reino:        Capricornio                                                       
-Fecha y hora: 2018-08-05 12:33                                                  
+Fecha y hora: 2018-08-07 08:02                                                  
 Recursos:     HIERRO:10000 MADERA:32000 ORO:15760                               
 Coronas:      5                                                                 
 Transaccion:  CMP                                                               
 -----------------------------3------------------------------                    
 Reino:        Sagitario                                                         
-Fecha y hora: 2018-08-05 12:33                                                  
+Fecha y hora: 2018-08-07 08:02                                                  
 Recursos:     HIERRO:9700 MADERA:19800 ORO:39000                                
 Coronas:      50                                                                
 Transaccion:  TRP                                                               
 -----------------------------4------------------------------                    
 Reino:        Sagitario                                                         
-Fecha y hora: 2018-08-05 12:34                                                  
+Fecha y hora: 2018-08-07 08:02                                                  
 Recursos:     HIERRO:9700 MADERA:34800 ORO:8550                                 
 Coronas:      55                                                                
 Transaccion:  CMP                                                               
 -----------------------------5------------------------------                    
 Reino:        Escorpio                                                          
-Fecha y hora: 2018-08-05 12:34                                                  
+Fecha y hora: 2018-08-07 08:02                                                  
 Recursos:     HIERRO:8400 MADERA:16000 ORO:39200                                
 Coronas:      80                                                                
 Transaccion:  TRP                                                               
 -----------------------------6------------------------------                    
 Reino:        Escorpio                                                          
-Fecha y hora: 2018-08-05 12:34                                                  
+Fecha y hora: 2018-08-07 08:02                                                  
 Recursos:     HIERRO:6900 MADERA:14500 ORO:37700                                
 Coronas:      110                                                               
 Transaccion:  TRP                                                               
 -----------------------------7------------------------------                    
 Reino:        Libra                                                             
-Fecha y hora: 2018-08-05 12:34                                                  
+Fecha y hora: 2018-08-07 08:02                                                  
 Recursos:     HIERRO:7000 MADERA:16500 ORO:38750                                
 Coronas:      150                                                               
 Transaccion:  TRP                                                               
 -----------------------------8------------------------------                    
 Reino:        Libra                                                             
-Fecha y hora: 2018-08-05 12:34                                                  
+Fecha y hora: 2018-08-07 08:02                                                  
 Recursos:     HIERRO:3800 MADERA:12500 ORO:30750                                
 Coronas:      210                                                               
 Transaccion:  DEF                                                               
 -----------------------------9------------------------------                    
 Reino:        Virgo                                                             
-Fecha y hora: 2018-08-05 12:34                                                  
+Fecha y hora: 2018-08-07 08:02                                                  
 Recursos:     HIERRO:16000 MADERA:20000 ORO:16120                               
 Coronas:      5                                                                 
 Transaccion:  CMP                                                               
 ----------------------------10------------------------------                    
 Reino:        Virgo                                                             
-Fecha y hora: 2018-08-05 12:34                                                  
+Fecha y hora: 2018-08-07 08:02                                                  
 Recursos:     HIERRO:4000 MADERA:17000 ORO:10120                                
 Coronas:      125                                                               
 Transaccion:  DEF                                                               
 ----------------------------11------------------------------                    
 Reino:        Leo                                                               
-Fecha y hora: 2018-08-05 12:34                                                  
+Fecha y hora: 2018-08-07 08:03                                                  
 Recursos:     HIERRO:8200 MADERA:18800 ORO:34000                                
 Coronas:      300                                                               
 Transaccion:  TRP                                                               
 ----------------------------12------------------------------                    
 Reino:        Leo                                                               
-Fecha y hora: 2018-08-05 12:34                                                  
+Fecha y hora: 2018-08-07 08:03                                                  
 Recursos:     HIERRO:6200 MADERA:16800 ORO:32000                                
 Coronas:      340                                                               
 Transaccion:  TRP                                                               
 ----------------------------13------------------------------                    
 Reino:        Cancer                                                            
-Fecha y hora: 2018-08-05 12:34                                                  
+Fecha y hora: 2018-08-07 08:03                                                  
 Recursos:     HIERRO:6000 MADERA:20000 ORO:55880                                
 Coronas:      10                                                                
 Transaccion:  VTA                                                               
 ----------------------------14------------------------------                    
 Reino:        Geminis                                                           
-Fecha y hora: 2018-08-05 12:34                                                  
+Fecha y hora: 2018-08-07 08:03                                                  
 Recursos:     HIERRO:8000 MADERA:15000 ORO:39000                                
 Coronas:      100                                                               
 Transaccion:  TRP                                                               
 ----------------------------15------------------------------                    
 Reino:        Geminis                                                           
-Fecha y hora: 2018-08-05 12:34                                                  
+Fecha y hora: 2018-08-07 08:03                                                  
 Recursos:     HIERRO:5000 MADERA:11500 ORO:37750                                
 Coronas:      250                                                               
 Transaccion:  TRP                                                               
 ----------------------------16------------------------------                    
+Reino:        Tauro                                                             
+Fecha y hora: 2018-08-07 08:03                                                  
+Recursos:     HIERRO:9850 MADERA:19900 ORO:38000                                
+Coronas:      40                                                                
+Transaccion:  M+D                                                               
+----------------------------17------------------------------                    
 Reino:        Aries                                                             
-Fecha y hora: 2018-08-05 12:35                                                  
+Fecha y hora: 2018-08-07 08:03                                                  
 Recursos:     HIERRO:6400 MADERA:15800 ORO:38500                                
 Coronas:      180                                                               
 Transaccion:  TRP                                                               
-----------------------------17------------------------------                    
-Reino:        Piscis                                                            
-Fecha y hora: 2018-08-05 12:35                                                  
-Recursos:     HIERRO:8000 MADERA:15000 ORO:39000                                
-Coronas:      100                                                               
-Transaccion:  TRP                                                               
 ----------------------------18------------------------------                    
-Reino:        Piscis                                                            
-Fecha y hora: 2018-08-05 12:35                                                  
-Recursos:     HIERRO:5000 MADERA:11500 ORO:37750                                
-Coronas:      250                                                               
-Transaccion:  TRP                                                               
-----------------------------19------------------------------                    
 Reino:        Aries                                                             
-Fecha y hora: 2018-08-05 12:35                                                  
+Fecha y hora: 2018-08-07 08:04                                                  
 Recursos:     HIERRO:6200 MADERA:15500 ORO:37000                                
 Coronas:      185                                                               
 Transaccion:  M+A                                                               
+----------------------------19------------------------------                    
+Reino:        Piscis                                                            
+Fecha y hora: 2018-08-07 08:04                                                  
+Recursos:     HIERRO:8000 MADERA:15000 ORO:39000                                
+Coronas:      100                                                               
+Transaccion:  TRP                                                               
+----------------------------20------------------------------                    
+Reino:        Piscis                                                            
+Fecha y hora: 2018-08-07 08:04                                                  
+Recursos:     HIERRO:5000 MADERA:11500 ORO:37750                                
+Coronas:      250                                                               
+Transaccion:  TRP                                                               
 
 PL/SQL procedure successfully completed.
+
+SQL> execute BOE.COMPRAR_DEFENSAS('CA¥ON',10,'Acuario');
+BEGIN BOE.COMPRAR_DEFENSAS('CA¥ON',10,'Acuario'); END;
+
+*
+ERROR at line 1:
+ORA-01403: no data found 
+ORA-06512: at "SYSTEM.BOE", line 487 
+ORA-06512: at line 1 
+
 
 SQL> execute BOE.COMPRAR_DEFENSAS('CAÑON',10,'Acuario');
 BEGIN BOE.COMPRAR_DEFENSAS('CAÑON',10,'Acuario'); END;
@@ -530,6 +537,357 @@ SQL> execute BOE.ENTRENAR_EJERCITO('Caballero',35,'Piscis');
 
 PL/SQL procedure successfully completed.
 
+SQL> execute BOE.MONITOREAR;
+-------------ORO--------------                                                  
+Reserva: 5170140                                                                
+Precio   1                                                                      
+-----------HIERRO-------------                                                  
+Reserva: 2053150                                                                
+Precio   3.93                                                                   
+-----------MADERA-------------                                                  
+Reserva: 2016700                                                                
+Precio   2.01                                                                   
+--------------------------RANKING---------------------------                    
+-----------------------------1------------------------------                    
+Reino:             Cancer                                                       
+Oro:               53880                                                        
+Oro tropas:        0                                                            
+Oro recursos:      31494.75                                                     
+Oro PTS ataque:    0                                                            
+Oro PTS defensa:   500                                                          
+Oro coronas:       500                                                          
+Total:             86374.75                                                     
+-----------------------------2------------------------------                    
+Reino:             Tauro                                                        
+Oro:               38000                                                        
+Oro tropas:        0                                                            
+Oro recursos:      39354.75                                                     
+Oro PTS ataque:    0                                                            
+Oro PTS defensa:   500                                                          
+Oro coronas:       400                                                          
+Total:             78254.75                                                     
+-----------------------------3------------------------------                    
+Reino:             Leo                                                          
+Oro:               29500                                                        
+Oro tropas:        13500                                                        
+Oro recursos:      20842.5                                                      
+Oro PTS ataque:    300                                                          
+Oro PTS defensa:   0                                                            
+Oro coronas:       4650                                                         
+Total:             68792.5                                                      
+-----------------------------4------------------------------                    
+Reino:             Escorpio                                                     
+Oro:               34700                                                        
+Oro tropas:        3450                                                         
+Oro recursos:      26742                                                        
+Oro PTS ataque:    630                                                          
+Oro PTS defensa:   0                                                            
+Oro coronas:       1200                                                         
+Total:             66722                                                        
+-----------------------------5------------------------------                    
+Reino:             Piscis                                                       
+Oro:               32750                                                        
+Oro tropas:        8625                                                         
+Oro recursos:      17921.25                                                     
+Oro PTS ataque:    300                                                          
+Oro PTS defensa:   0                                                            
+Oro coronas:       4300                                                         
+Total:             63896.25                                                     
+-----------------------------6------------------------------                    
+Reino:             Geminis                                                      
+Oro:               33750                                                        
+Oro tropas:        9375                                                         
+Oro recursos:      16041                                                        
+Oro PTS ataque:    0                                                            
+Oro PTS defensa:   0                                                            
+Oro coronas:       4200                                                         
+Total:             63366                                                        
+-----------------------------7------------------------------                    
+Reino:             Sagitario                                                    
+Oro:               6550                                                         
+Oro tropas:        2250                                                         
+Oro recursos:      51855                                                        
+Oro PTS ataque:    300                                                          
+Oro PTS defensa:   0                                                            
+Oro coronas:       700                                                          
+Total:             61655                                                        
+-----------------------------8------------------------------                    
+Reino:             Acuario                                                      
+Oro:               0                                                            
+Oro tropas:        0                                                            
+Oro recursos:      59850                                                        
+Oro PTS ataque:    0                                                            
+Oro PTS defensa:   0                                                            
+Oro coronas:       50                                                           
+Total:             59900                                                        
+-----------------------------9------------------------------                    
+Reino:             Capricornio                                                  
+Oro:               10560                                                        
+Oro tropas:        7800                                                         
+Oro recursos:      37902                                                        
+Oro PTS ataque:    0                                                            
+Oro PTS defensa:   0                                                            
+Oro coronas:       3250                                                         
+Total:             59512                                                        
+----------------------------10------------------------------                    
+Reino:             Aries                                                        
+Oro:               34300                                                        
+Oro tropas:        6300                                                         
+Oro recursos:      12559.5                                                      
+Oro PTS ataque:    300                                                          
+Oro PTS defensa:   0                                                            
+Oro coronas:       3350                                                         
+Total:             56809.5                                                      
+----------------------------11------------------------------                    
+Reino:             Libra                                                        
+Oro:               27750                                                        
+Oro tropas:        3375                                                         
+Oro recursos:      16664.25                                                     
+Oro PTS ataque:    0                                                            
+Oro PTS defensa:   500                                                          
+Oro coronas:       2700                                                         
+Total:             50989.25                                                     
+----------------------------12------------------------------                    
+Reino:             Virgo                                                        
+Oro:               8120                                                         
+Oro tropas:        0                                                            
+Oro recursos:      24549.75                                                     
+Oro PTS ataque:    0                                                            
+Oro PTS defensa:   500                                                          
+Oro coronas:       1650                                                         
+Total:             34819.75                                                     
+-------------------------BITACORA---------------------------                    
+-----------------------------1------------------------------                    
+Reino:        Acuario                                                           
+Fecha y hora: 2018-08-07 08:02                                                  
+Recursos:     HIERRO:10000 MADERA:40000 ORO:0                                   
+Coronas:      5                                                                 
+Transaccion:  CMP                                                               
+-----------------------------2------------------------------                    
+Reino:        Capricornio                                                       
+Fecha y hora: 2018-08-07 08:02                                                  
+Recursos:     HIERRO:10000 MADERA:32000 ORO:15760                               
+Coronas:      5                                                                 
+Transaccion:  CMP                                                               
+-----------------------------3------------------------------                    
+Reino:        Sagitario                                                         
+Fecha y hora: 2018-08-07 08:02                                                  
+Recursos:     HIERRO:9700 MADERA:19800 ORO:39000                                
+Coronas:      50                                                                
+Transaccion:  TRP                                                               
+-----------------------------4------------------------------                    
+Reino:        Sagitario                                                         
+Fecha y hora: 2018-08-07 08:02                                                  
+Recursos:     HIERRO:9700 MADERA:34800 ORO:8550                                 
+Coronas:      55                                                                
+Transaccion:  CMP                                                               
+-----------------------------5------------------------------                    
+Reino:        Escorpio                                                          
+Fecha y hora: 2018-08-07 08:02                                                  
+Recursos:     HIERRO:8400 MADERA:16000 ORO:39200                                
+Coronas:      80                                                                
+Transaccion:  TRP                                                               
+-----------------------------6------------------------------                    
+Reino:        Escorpio                                                          
+Fecha y hora: 2018-08-07 08:02                                                  
+Recursos:     HIERRO:6900 MADERA:14500 ORO:37700                                
+Coronas:      110                                                               
+Transaccion:  TRP                                                               
+-----------------------------7------------------------------                    
+Reino:        Libra                                                             
+Fecha y hora: 2018-08-07 08:02                                                  
+Recursos:     HIERRO:7000 MADERA:16500 ORO:38750                                
+Coronas:      150                                                               
+Transaccion:  TRP                                                               
+-----------------------------8------------------------------                    
+Reino:        Libra                                                             
+Fecha y hora: 2018-08-07 08:02                                                  
+Recursos:     HIERRO:3800 MADERA:12500 ORO:30750                                
+Coronas:      210                                                               
+Transaccion:  DEF                                                               
+-----------------------------9------------------------------                    
+Reino:        Virgo                                                             
+Fecha y hora: 2018-08-07 08:02                                                  
+Recursos:     HIERRO:16000 MADERA:20000 ORO:16120                               
+Coronas:      5                                                                 
+Transaccion:  CMP                                                               
+----------------------------10------------------------------                    
+Reino:        Virgo                                                             
+Fecha y hora: 2018-08-07 08:02                                                  
+Recursos:     HIERRO:4000 MADERA:17000 ORO:10120                                
+Coronas:      125                                                               
+Transaccion:  DEF                                                               
+----------------------------11------------------------------                    
+Reino:        Leo                                                               
+Fecha y hora: 2018-08-07 08:03                                                  
+Recursos:     HIERRO:8200 MADERA:18800 ORO:34000                                
+Coronas:      300                                                               
+Transaccion:  TRP                                                               
+----------------------------12------------------------------                    
+Reino:        Leo                                                               
+Fecha y hora: 2018-08-07 08:03                                                  
+Recursos:     HIERRO:6200 MADERA:16800 ORO:32000                                
+Coronas:      340                                                               
+Transaccion:  TRP                                                               
+----------------------------13------------------------------                    
+Reino:        Cancer                                                            
+Fecha y hora: 2018-08-07 08:03                                                  
+Recursos:     HIERRO:6000 MADERA:20000 ORO:55880                                
+Coronas:      10                                                                
+Transaccion:  VTA                                                               
+----------------------------14------------------------------                    
+Reino:        Geminis                                                           
+Fecha y hora: 2018-08-07 08:03                                                  
+Recursos:     HIERRO:8000 MADERA:15000 ORO:39000                                
+Coronas:      100                                                               
+Transaccion:  TRP                                                               
+----------------------------15------------------------------                    
+Reino:        Geminis                                                           
+Fecha y hora: 2018-08-07 08:03                                                  
+Recursos:     HIERRO:5000 MADERA:11500 ORO:37750                                
+Coronas:      250                                                               
+Transaccion:  TRP                                                               
+----------------------------16------------------------------                    
+Reino:        Tauro                                                             
+Fecha y hora: 2018-08-07 08:03                                                  
+Recursos:     HIERRO:9850 MADERA:19900 ORO:38000                                
+Coronas:      40                                                                
+Transaccion:  M+D                                                               
+----------------------------17------------------------------                    
+Reino:        Aries                                                             
+Fecha y hora: 2018-08-07 08:03                                                  
+Recursos:     HIERRO:6400 MADERA:15800 ORO:38500                                
+Coronas:      180                                                               
+Transaccion:  TRP                                                               
+----------------------------18------------------------------                    
+Reino:        Aries                                                             
+Fecha y hora: 2018-08-07 08:04                                                  
+Recursos:     HIERRO:6200 MADERA:15500 ORO:37000                                
+Coronas:      185                                                               
+Transaccion:  M+A                                                               
+----------------------------19------------------------------                    
+Reino:        Piscis                                                            
+Fecha y hora: 2018-08-07 08:04                                                  
+Recursos:     HIERRO:8000 MADERA:15000 ORO:39000                                
+Coronas:      100                                                               
+Transaccion:  TRP                                                               
+----------------------------20------------------------------                    
+Reino:        Piscis                                                            
+Fecha y hora: 2018-08-07 08:04                                                  
+Recursos:     HIERRO:5000 MADERA:11500 ORO:37750                                
+Coronas:      250                                                               
+Transaccion:  TRP                                                               
+----------------------------21------------------------------                    
+Reino:        Capricornio                                                       
+Fecha y hora: 2018-08-07 08:04                                                  
+Recursos:     HIERRO:7600 MADERA:26000 ORO:14560                                
+Coronas:      125                                                               
+Transaccion:  TRP                                                               
+----------------------------22------------------------------                    
+Reino:        Capricornio                                                       
+Fecha y hora: 2018-08-07 08:04                                                  
+Recursos:     HIERRO:6400 MADERA:25200 ORO:10560                                
+Coronas:      325                                                               
+Transaccion:  TRP                                                               
+----------------------------23------------------------------                    
+Reino:        Sagitario                                                         
+Fecha y hora: 2018-08-07 08:04                                                  
+Recursos:     HIERRO:9200 MADERA:34300 ORO:8050                                 
+Coronas:      65                                                                
+Transaccion:  TRP                                                               
+----------------------------24------------------------------                    
+Reino:        Sagitario                                                         
+Fecha y hora: 2018-08-07 08:04                                                  
+Recursos:     HIERRO:9000 MADERA:34000 ORO:6550                                 
+Coronas:      70                                                                
+Transaccion:  M+A                                                               
+----------------------------25------------------------------                    
+Reino:        Escorpio                                                          
+Fecha y hora: 2018-08-07 08:05                                                  
+Recursos:     HIERRO:6700 MADERA:14200 ORO:36200                                
+Coronas:      115                                                               
+Transaccion:  M+A                                                               
+----------------------------26------------------------------                    
+Reino:        Escorpio                                                          
+Fecha y hora: 2018-08-07 08:05                                                  
+Recursos:     HIERRO:6500 MADERA:13900 ORO:34700                                
+Coronas:      120                                                               
+Transaccion:  M+A                                                               
+----------------------------27------------------------------                    
+Reino:        Libra                                                             
+Fecha y hora: 2018-08-07 08:05                                                  
+Recursos:     HIERRO:2800 MADERA:11500 ORO:29750                                
+Coronas:      230                                                               
+Transaccion:  TRP                                                               
+----------------------------28------------------------------                    
+Reino:        Libra                                                             
+Fecha y hora: 2018-08-07 08:05                                                  
+Recursos:     HIERRO:2650 MADERA:11400 ORO:27750                                
+Coronas:      270                                                               
+Transaccion:  M+D                                                               
+----------------------------29------------------------------                    
+Reino:        Virgo                                                             
+Fecha y hora: 2018-08-07 08:05                                                  
+Recursos:     HIERRO:3850 MADERA:16900 ORO:8120                                 
+Coronas:      165                                                               
+Transaccion:  M+D                                                               
+----------------------------30------------------------------                    
+Reino:        Leo                                                               
+Fecha y hora: 2018-08-07 08:05                                                  
+Recursos:     HIERRO:3800 MADERA:14000 ORO:31000                                
+Coronas:      460                                                               
+Transaccion:  TRP                                                               
+----------------------------31------------------------------                    
+Reino:        Leo                                                               
+Fecha y hora: 2018-08-07 08:05                                                  
+Recursos:     HIERRO:3600 MADERA:13700 ORO:29500                                
+Coronas:      465                                                               
+Transaccion:  M+A                                                               
+----------------------------32------------------------------                    
+Reino:        Cancer                                                            
+Fecha y hora: 2018-08-07 08:05                                                  
+Recursos:     HIERRO:5850 MADERA:19900 ORO:53880                                
+Coronas:      50                                                                
+Transaccion:  M+D                                                               
+----------------------------33------------------------------                    
+Reino:        Geminis                                                           
+Fecha y hora: 2018-08-07 08:05                                                  
+Recursos:     HIERRO:4000 MADERA:10500 ORO:36750                                
+Coronas:      270                                                               
+Transaccion:  TRP                                                               
+----------------------------34------------------------------                    
+Reino:        Geminis                                                           
+Fecha y hora: 2018-08-07 08:05                                                  
+Recursos:     HIERRO:3100 MADERA:9900 ORO:33750                                 
+Coronas:      420                                                               
+Transaccion:  TRP                                                               
+----------------------------35------------------------------                    
+Reino:        Aries                                                             
+Fecha y hora: 2018-08-07 08:06                                                  
+Recursos:     HIERRO:3800 MADERA:9500 ORO:35800                                 
+Coronas:      305                                                               
+Transaccion:  TRP                                                               
+----------------------------36------------------------------                    
+Reino:        Aries                                                             
+Fecha y hora: 2018-08-07 08:06                                                  
+Recursos:     HIERRO:2300 MADERA:8000 ORO:34300                                 
+Coronas:      335                                                               
+Transaccion:  TRP                                                               
+----------------------------37------------------------------                    
+Reino:        Piscis                                                            
+Fecha y hora: 2018-08-07 08:06                                                  
+Recursos:     HIERRO:4800 MADERA:11200 ORO:36250                                
+Coronas:      255                                                               
+Transaccion:  M+A                                                               
+----------------------------38------------------------------                    
+Reino:        Piscis                                                            
+Fecha y hora: 2018-08-07 08:06                                                  
+Recursos:     HIERRO:3750 MADERA:10500 ORO:32750                                
+Coronas:      430                                                               
+Transaccion:  TRP                                                               
+
+PL/SQL procedure successfully completed.
+
 SQL> execute BOE.MEJORAR_DEFENSA('Acuario');
 BEGIN BOE.MEJORAR_DEFENSA('Acuario'); END;
 
@@ -669,13 +1027,13 @@ PL/SQL procedure successfully completed.
 
 SQL> execute BOE.MONITOREAR;
 -------------ORO--------------                                                  
-Reserva: 5183780                                                                
+Reserva: 5185780                                                                
 Precio   1                                                                      
 -----------HIERRO-------------                                                  
-Reserva: 2057750                                                                
+Reserva: 2057900                                                                
 Precio   3.93                                                                   
 -----------MADERA-------------                                                  
-Reserva: 2019600                                                                
+Reserva: 2019700                                                                
 Precio   2.01                                                                   
 --------------------------RANKING---------------------------                    
 -----------------------------1------------------------------                    
@@ -706,15 +1064,6 @@ Oro PTS defensa:   0
 Oro coronas:       3320                                                         
 Total:             86920.125                                                    
 -----------------------------4------------------------------                    
-Reino:             Tauro                                                        
-Oro:               38000                                                        
-Oro tropas:        0                                                            
-Oro recursos:      39354.75                                                     
-Oro PTS ataque:    0                                                            
-Oro PTS defensa:   500                                                          
-Oro coronas:       400                                                          
-Total:             78254.75                                                     
------------------------------5------------------------------                    
 Reino:             Piscis                                                       
 Oro:               42508                                                        
 Oro tropas:        6112.5                                                       
@@ -723,6 +1072,15 @@ Oro PTS ataque:    315
 Oro PTS defensa:   0                                                            
 Oro coronas:       4370                                                         
 Total:             77697.3                                                      
+-----------------------------5------------------------------                    
+Reino:             Tauro                                                        
+Oro:               36000                                                        
+Oro tropas:        0                                                            
+Oro recursos:      38959.5                                                      
+Oro PTS ataque:    0                                                            
+Oro PTS defensa:   1050                                                         
+Oro coronas:       800                                                          
+Total:             76809.5                                                      
 -----------------------------6------------------------------                    
 Reino:             Escorpio                                                     
 Oro:               44667                                                        
@@ -789,337 +1147,343 @@ Total:             11364.095
 -------------------------BITACORA---------------------------                    
 -----------------------------1------------------------------                    
 Reino:        Acuario                                                           
-Fecha y hora: 2018-08-05 12:33                                                  
+Fecha y hora: 2018-08-07 08:02                                                  
 Recursos:     HIERRO:10000 MADERA:40000 ORO:0                                   
 Coronas:      5                                                                 
 Transaccion:  CMP                                                               
 -----------------------------2------------------------------                    
 Reino:        Capricornio                                                       
-Fecha y hora: 2018-08-05 12:33                                                  
+Fecha y hora: 2018-08-07 08:02                                                  
 Recursos:     HIERRO:10000 MADERA:32000 ORO:15760                               
 Coronas:      5                                                                 
 Transaccion:  CMP                                                               
 -----------------------------3------------------------------                    
 Reino:        Sagitario                                                         
-Fecha y hora: 2018-08-05 12:33                                                  
+Fecha y hora: 2018-08-07 08:02                                                  
 Recursos:     HIERRO:9700 MADERA:19800 ORO:39000                                
 Coronas:      50                                                                
 Transaccion:  TRP                                                               
 -----------------------------4------------------------------                    
 Reino:        Sagitario                                                         
-Fecha y hora: 2018-08-05 12:34                                                  
+Fecha y hora: 2018-08-07 08:02                                                  
 Recursos:     HIERRO:9700 MADERA:34800 ORO:8550                                 
 Coronas:      55                                                                
 Transaccion:  CMP                                                               
 -----------------------------5------------------------------                    
 Reino:        Escorpio                                                          
-Fecha y hora: 2018-08-05 12:34                                                  
+Fecha y hora: 2018-08-07 08:02                                                  
 Recursos:     HIERRO:8400 MADERA:16000 ORO:39200                                
 Coronas:      80                                                                
 Transaccion:  TRP                                                               
 -----------------------------6------------------------------                    
 Reino:        Escorpio                                                          
-Fecha y hora: 2018-08-05 12:34                                                  
+Fecha y hora: 2018-08-07 08:02                                                  
 Recursos:     HIERRO:6900 MADERA:14500 ORO:37700                                
 Coronas:      110                                                               
 Transaccion:  TRP                                                               
 -----------------------------7------------------------------                    
 Reino:        Libra                                                             
-Fecha y hora: 2018-08-05 12:34                                                  
+Fecha y hora: 2018-08-07 08:02                                                  
 Recursos:     HIERRO:7000 MADERA:16500 ORO:38750                                
 Coronas:      150                                                               
 Transaccion:  TRP                                                               
 -----------------------------8------------------------------                    
 Reino:        Libra                                                             
-Fecha y hora: 2018-08-05 12:34                                                  
+Fecha y hora: 2018-08-07 08:02                                                  
 Recursos:     HIERRO:3800 MADERA:12500 ORO:30750                                
 Coronas:      210                                                               
 Transaccion:  DEF                                                               
 -----------------------------9------------------------------                    
 Reino:        Virgo                                                             
-Fecha y hora: 2018-08-05 12:34                                                  
+Fecha y hora: 2018-08-07 08:02                                                  
 Recursos:     HIERRO:16000 MADERA:20000 ORO:16120                               
 Coronas:      5                                                                 
 Transaccion:  CMP                                                               
 ----------------------------10------------------------------                    
 Reino:        Virgo                                                             
-Fecha y hora: 2018-08-05 12:34                                                  
+Fecha y hora: 2018-08-07 08:02                                                  
 Recursos:     HIERRO:4000 MADERA:17000 ORO:10120                                
 Coronas:      125                                                               
 Transaccion:  DEF                                                               
 ----------------------------11------------------------------                    
 Reino:        Leo                                                               
-Fecha y hora: 2018-08-05 12:34                                                  
+Fecha y hora: 2018-08-07 08:03                                                  
 Recursos:     HIERRO:8200 MADERA:18800 ORO:34000                                
 Coronas:      300                                                               
 Transaccion:  TRP                                                               
 ----------------------------12------------------------------                    
 Reino:        Leo                                                               
-Fecha y hora: 2018-08-05 12:34                                                  
+Fecha y hora: 2018-08-07 08:03                                                  
 Recursos:     HIERRO:6200 MADERA:16800 ORO:32000                                
 Coronas:      340                                                               
 Transaccion:  TRP                                                               
 ----------------------------13------------------------------                    
 Reino:        Cancer                                                            
-Fecha y hora: 2018-08-05 12:34                                                  
+Fecha y hora: 2018-08-07 08:03                                                  
 Recursos:     HIERRO:6000 MADERA:20000 ORO:55880                                
 Coronas:      10                                                                
 Transaccion:  VTA                                                               
 ----------------------------14------------------------------                    
 Reino:        Geminis                                                           
-Fecha y hora: 2018-08-05 12:34                                                  
+Fecha y hora: 2018-08-07 08:03                                                  
 Recursos:     HIERRO:8000 MADERA:15000 ORO:39000                                
 Coronas:      100                                                               
 Transaccion:  TRP                                                               
 ----------------------------15------------------------------                    
 Reino:        Geminis                                                           
-Fecha y hora: 2018-08-05 12:34                                                  
+Fecha y hora: 2018-08-07 08:03                                                  
 Recursos:     HIERRO:5000 MADERA:11500 ORO:37750                                
 Coronas:      250                                                               
 Transaccion:  TRP                                                               
 ----------------------------16------------------------------                    
-Reino:        Aries                                                             
-Fecha y hora: 2018-08-05 12:35                                                  
-Recursos:     HIERRO:6400 MADERA:15800 ORO:38500                                
-Coronas:      180                                                               
-Transaccion:  TRP                                                               
-----------------------------17------------------------------                    
-Reino:        Piscis                                                            
-Fecha y hora: 2018-08-05 12:35                                                  
-Recursos:     HIERRO:8000 MADERA:15000 ORO:39000                                
-Coronas:      100                                                               
-Transaccion:  TRP                                                               
-----------------------------18------------------------------                    
-Reino:        Piscis                                                            
-Fecha y hora: 2018-08-05 12:35                                                  
-Recursos:     HIERRO:5000 MADERA:11500 ORO:37750                                
-Coronas:      250                                                               
-Transaccion:  TRP                                                               
-----------------------------19------------------------------                    
-Reino:        Aries                                                             
-Fecha y hora: 2018-08-05 12:35                                                  
-Recursos:     HIERRO:6200 MADERA:15500 ORO:37000                                
-Coronas:      185                                                               
-Transaccion:  M+A                                                               
-----------------------------20------------------------------                    
-Reino:        Capricornio                                                       
-Fecha y hora: 2018-08-05 12:36                                                  
-Recursos:     HIERRO:7600 MADERA:26000 ORO:14560                                
-Coronas:      125                                                               
-Transaccion:  TRP                                                               
-----------------------------21------------------------------                    
-Reino:        Capricornio                                                       
-Fecha y hora: 2018-08-05 12:36                                                  
-Recursos:     HIERRO:6400 MADERA:25200 ORO:10560                                
-Coronas:      325                                                               
-Transaccion:  TRP                                                               
-----------------------------22------------------------------                    
-Reino:        Sagitario                                                         
-Fecha y hora: 2018-08-05 12:36                                                  
-Recursos:     HIERRO:9200 MADERA:34300 ORO:8050                                 
-Coronas:      65                                                                
-Transaccion:  TRP                                                               
-----------------------------23------------------------------                    
-Reino:        Sagitario                                                         
-Fecha y hora: 2018-08-05 12:36                                                  
-Recursos:     HIERRO:9000 MADERA:34000 ORO:6550                                 
-Coronas:      70                                                                
-Transaccion:  M+A                                                               
-----------------------------24------------------------------                    
-Reino:        Escorpio                                                          
-Fecha y hora: 2018-08-05 12:36                                                  
-Recursos:     HIERRO:6700 MADERA:14200 ORO:36200                                
-Coronas:      115                                                               
-Transaccion:  M+A                                                               
-----------------------------25------------------------------                    
-Reino:        Escorpio                                                          
-Fecha y hora: 2018-08-05 12:36                                                  
-Recursos:     HIERRO:6500 MADERA:13900 ORO:34700                                
-Coronas:      120                                                               
-Transaccion:  M+A                                                               
-----------------------------26------------------------------                    
-Reino:        Libra                                                             
-Fecha y hora: 2018-08-05 12:36                                                  
-Recursos:     HIERRO:2800 MADERA:11500 ORO:29750                                
-Coronas:      230                                                               
-Transaccion:  TRP                                                               
-----------------------------27------------------------------                    
-Reino:        Libra                                                             
-Fecha y hora: 2018-08-05 12:36                                                  
-Recursos:     HIERRO:2650 MADERA:11400 ORO:27750                                
-Coronas:      270                                                               
-Transaccion:  M+D                                                               
-----------------------------28------------------------------                    
-Reino:        Virgo                                                             
-Fecha y hora: 2018-08-05 12:36                                                  
-Recursos:     HIERRO:3850 MADERA:16900 ORO:8120                                 
-Coronas:      165                                                               
-Transaccion:  M+D                                                               
-----------------------------29------------------------------                    
-Reino:        Leo                                                               
-Fecha y hora: 2018-08-05 12:36                                                  
-Recursos:     HIERRO:3800 MADERA:14000 ORO:31000                                
-Coronas:      460                                                               
-Transaccion:  TRP                                                               
-----------------------------30------------------------------                    
-Reino:        Leo                                                               
-Fecha y hora: 2018-08-05 12:36                                                  
-Recursos:     HIERRO:3600 MADERA:13700 ORO:29500                                
-Coronas:      465                                                               
-Transaccion:  M+A                                                               
-----------------------------31------------------------------                    
-Reino:        Cancer                                                            
-Fecha y hora: 2018-08-05 12:37                                                  
-Recursos:     HIERRO:5850 MADERA:19900 ORO:53880                                
-Coronas:      50                                                                
-Transaccion:  M+D                                                               
-----------------------------32------------------------------                    
-Reino:        Geminis                                                           
-Fecha y hora: 2018-08-05 12:37                                                  
-Recursos:     HIERRO:4000 MADERA:10500 ORO:36750                                
-Coronas:      270                                                               
-Transaccion:  TRP                                                               
-----------------------------33------------------------------                    
-Reino:        Geminis                                                           
-Fecha y hora: 2018-08-05 12:37                                                  
-Recursos:     HIERRO:3100 MADERA:9900 ORO:33750                                 
-Coronas:      420                                                               
-Transaccion:  TRP                                                               
-----------------------------34------------------------------                    
-Reino:        Aries                                                             
-Fecha y hora: 2018-08-05 12:37                                                  
-Recursos:     HIERRO:3800 MADERA:9500 ORO:35800                                 
-Coronas:      305                                                               
-Transaccion:  TRP                                                               
-----------------------------35------------------------------                    
-Reino:        Aries                                                             
-Fecha y hora: 2018-08-05 12:37                                                  
-Recursos:     HIERRO:2300 MADERA:8000 ORO:34300                                 
-Coronas:      335                                                               
-Transaccion:  TRP                                                               
-----------------------------36------------------------------                    
-Reino:        Piscis                                                            
-Fecha y hora: 2018-08-05 12:37                                                  
-Recursos:     HIERRO:4800 MADERA:11200 ORO:36250                                
-Coronas:      255                                                               
-Transaccion:  M+A                                                               
-----------------------------37------------------------------                    
-Reino:        Piscis                                                            
-Fecha y hora: 2018-08-05 12:37                                                  
-Recursos:     HIERRO:3750 MADERA:10500 ORO:32750                                
-Coronas:      430                                                               
-Transaccion:  TRP                                                               
-----------------------------38------------------------------                    
-Reino:        Capricornio                                                       
-Fecha y hora: 2018-08-05 12:38                                                  
-Recursos:     HIERRO:6200 MADERA:24900 ORO:9060                                 
-Coronas:      330                                                               
-Transaccion:  M+A                                                               
-----------------------------39------------------------------                    
-Reino:        Capricornio                                                       
-Fecha y hora: 2018-08-05 12:38                                                  
-Recursos:     HIERRO:8540 MADERA:33805 ORO:27235                                
-Coronas:      332                                                               
-Transaccion:  ATK                                                               
-----------------------------40------------------------------                    
-Reino:        Sagitario                                                         
-Fecha y hora: 2018-08-05 12:38                                                  
-Recursos:     HIERRO:8800 MADERA:33700 ORO:5050                                 
-Coronas:      75                                                                
-Transaccion:  M+A                                                               
-----------------------------41------------------------------                    
-Reino:        Sagitario                                                         
-Fecha y hora: 2018-08-05 12:38                                                  
-Recursos:     HIERRO:13025 MADERA:42735 ORO:26605                               
-Coronas:      77                                                                
-Transaccion:  ATK                                                               
-----------------------------42------------------------------                    
-Reino:        Escorpio                                                          
-Fecha y hora: 2018-08-05 12:38                                                  
-Recursos:     HIERRO:775 MADERA:3365 ORO:10645                                  
-Coronas:      150                                                               
-Transaccion:  TRP                                                               
-----------------------------43------------------------------                    
-Reino:        Escorpio                                                          
-Fecha y hora: 2018-08-05 12:38                                                  
-Recursos:     HIERRO:4578 MADERA:16300 ORO:44667                                
-Coronas:      152                                                               
-Transaccion:  ATK                                                               
-----------------------------44------------------------------                    
-Reino:        Libra                                                             
-Fecha y hora: 2018-08-05 12:38                                                  
-Recursos:     HIERRO:11116 MADERA:39178 ORO:44043                               
-Coronas:      272                                                               
-Transaccion:  ATK                                                               
-----------------------------45------------------------------                    
-Reino:        Libra                                                             
-Fecha y hora: 2018-08-05 12:38                                                  
-Recursos:     HIERRO:10966 MADERA:39078 ORO:42043                               
-Coronas:      312                                                               
-Transaccion:  M+D                                                               
-----------------------------46------------------------------                    
-Reino:        Virgo                                                             
-Fecha y hora: 2018-08-05 12:39                                                  
-Recursos:     HIERRO:3700 MADERA:16800 ORO:6120                                 
-Coronas:      205                                                               
-Transaccion:  M+D                                                               
-----------------------------47------------------------------                    
-Reino:        Virgo                                                             
-Fecha y hora: 2018-08-05 12:39                                                  
-Recursos:     HIERRO:1700 MADERA:16800 ORO:13980                                
-Coronas:      215                                                               
-Transaccion:  VTA                                                               
-----------------------------48------------------------------                    
-Reino:        Leo                                                               
-Fecha y hora: 2018-08-05 12:39                                                  
-Recursos:     HIERRO:7760 MADERA:30795 ORO:9325                                 
-Coronas:      467                                                               
-Transaccion:  ATK                                                               
-----------------------------49------------------------------                    
-Reino:        Leo                                                               
-Fecha y hora: 2018-08-05 12:39                                                  
-Recursos:     HIERRO:9775 MADERA:37230 ORO:30263                                
-Coronas:      469                                                               
-Transaccion:  ATK                                                               
-----------------------------50------------------------------                    
-Reino:        Geminis                                                           
-Fecha y hora: 2018-08-05 12:39                                                  
-Recursos:     HIERRO:885 MADERA:3165 ORO:10313                                  
-Coronas:      425                                                               
-Transaccion:  M+A                                                               
-----------------------------51------------------------------                    
-Reino:        Geminis                                                           
-Fecha y hora: 2018-08-05 12:39                                                  
-Recursos:     HIERRO:885 MADERA:3165 ORO:6519                                   
-Coronas:      427                                                               
-Transaccion:  ATK                                                               
-----------------------------52------------------------------                    
 Reino:        Tauro                                                             
-Fecha y hora: 2018-08-05 12:39                                                  
+Fecha y hora: 2018-08-07 08:03                                                  
 Recursos:     HIERRO:9850 MADERA:19900 ORO:38000                                
 Coronas:      40                                                                
 Transaccion:  M+D                                                               
-----------------------------53------------------------------                    
+----------------------------17------------------------------                    
 Reino:        Aries                                                             
-Fecha y hora: 2018-08-05 12:39                                                  
+Fecha y hora: 2018-08-07 08:03                                                  
+Recursos:     HIERRO:6400 MADERA:15800 ORO:38500                                
+Coronas:      180                                                               
+Transaccion:  TRP                                                               
+----------------------------18------------------------------                    
+Reino:        Aries                                                             
+Fecha y hora: 2018-08-07 08:04                                                  
+Recursos:     HIERRO:6200 MADERA:15500 ORO:37000                                
+Coronas:      185                                                               
+Transaccion:  M+A                                                               
+----------------------------19------------------------------                    
+Reino:        Piscis                                                            
+Fecha y hora: 2018-08-07 08:04                                                  
+Recursos:     HIERRO:8000 MADERA:15000 ORO:39000                                
+Coronas:      100                                                               
+Transaccion:  TRP                                                               
+----------------------------20------------------------------                    
+Reino:        Piscis                                                            
+Fecha y hora: 2018-08-07 08:04                                                  
+Recursos:     HIERRO:5000 MADERA:11500 ORO:37750                                
+Coronas:      250                                                               
+Transaccion:  TRP                                                               
+----------------------------21------------------------------                    
+Reino:        Capricornio                                                       
+Fecha y hora: 2018-08-07 08:04                                                  
+Recursos:     HIERRO:7600 MADERA:26000 ORO:14560                                
+Coronas:      125                                                               
+Transaccion:  TRP                                                               
+----------------------------22------------------------------                    
+Reino:        Capricornio                                                       
+Fecha y hora: 2018-08-07 08:04                                                  
+Recursos:     HIERRO:6400 MADERA:25200 ORO:10560                                
+Coronas:      325                                                               
+Transaccion:  TRP                                                               
+----------------------------23------------------------------                    
+Reino:        Sagitario                                                         
+Fecha y hora: 2018-08-07 08:04                                                  
+Recursos:     HIERRO:9200 MADERA:34300 ORO:8050                                 
+Coronas:      65                                                                
+Transaccion:  TRP                                                               
+----------------------------24------------------------------                    
+Reino:        Sagitario                                                         
+Fecha y hora: 2018-08-07 08:04                                                  
+Recursos:     HIERRO:9000 MADERA:34000 ORO:6550                                 
+Coronas:      70                                                                
+Transaccion:  M+A                                                               
+----------------------------25------------------------------                    
+Reino:        Escorpio                                                          
+Fecha y hora: 2018-08-07 08:05                                                  
+Recursos:     HIERRO:6700 MADERA:14200 ORO:36200                                
+Coronas:      115                                                               
+Transaccion:  M+A                                                               
+----------------------------26------------------------------                    
+Reino:        Escorpio                                                          
+Fecha y hora: 2018-08-07 08:05                                                  
+Recursos:     HIERRO:6500 MADERA:13900 ORO:34700                                
+Coronas:      120                                                               
+Transaccion:  M+A                                                               
+----------------------------27------------------------------                    
+Reino:        Libra                                                             
+Fecha y hora: 2018-08-07 08:05                                                  
+Recursos:     HIERRO:2800 MADERA:11500 ORO:29750                                
+Coronas:      230                                                               
+Transaccion:  TRP                                                               
+----------------------------28------------------------------                    
+Reino:        Libra                                                             
+Fecha y hora: 2018-08-07 08:05                                                  
+Recursos:     HIERRO:2650 MADERA:11400 ORO:27750                                
+Coronas:      270                                                               
+Transaccion:  M+D                                                               
+----------------------------29------------------------------                    
+Reino:        Virgo                                                             
+Fecha y hora: 2018-08-07 08:05                                                  
+Recursos:     HIERRO:3850 MADERA:16900 ORO:8120                                 
+Coronas:      165                                                               
+Transaccion:  M+D                                                               
+----------------------------30------------------------------                    
+Reino:        Leo                                                               
+Fecha y hora: 2018-08-07 08:05                                                  
+Recursos:     HIERRO:3800 MADERA:14000 ORO:31000                                
+Coronas:      460                                                               
+Transaccion:  TRP                                                               
+----------------------------31------------------------------                    
+Reino:        Leo                                                               
+Fecha y hora: 2018-08-07 08:05                                                  
+Recursos:     HIERRO:3600 MADERA:13700 ORO:29500                                
+Coronas:      465                                                               
+Transaccion:  M+A                                                               
+----------------------------32------------------------------                    
+Reino:        Cancer                                                            
+Fecha y hora: 2018-08-07 08:05                                                  
+Recursos:     HIERRO:5850 MADERA:19900 ORO:53880                                
+Coronas:      50                                                                
+Transaccion:  M+D                                                               
+----------------------------33------------------------------                    
+Reino:        Geminis                                                           
+Fecha y hora: 2018-08-07 08:05                                                  
+Recursos:     HIERRO:4000 MADERA:10500 ORO:36750                                
+Coronas:      270                                                               
+Transaccion:  TRP                                                               
+----------------------------34------------------------------                    
+Reino:        Geminis                                                           
+Fecha y hora: 2018-08-07 08:05                                                  
+Recursos:     HIERRO:3100 MADERA:9900 ORO:33750                                 
+Coronas:      420                                                               
+Transaccion:  TRP                                                               
+----------------------------35------------------------------                    
+Reino:        Aries                                                             
+Fecha y hora: 2018-08-07 08:06                                                  
+Recursos:     HIERRO:3800 MADERA:9500 ORO:35800                                 
+Coronas:      305                                                               
+Transaccion:  TRP                                                               
+----------------------------36------------------------------                    
+Reino:        Aries                                                             
+Fecha y hora: 2018-08-07 08:06                                                  
+Recursos:     HIERRO:2300 MADERA:8000 ORO:34300                                 
+Coronas:      335                                                               
+Transaccion:  TRP                                                               
+----------------------------37------------------------------                    
+Reino:        Piscis                                                            
+Fecha y hora: 2018-08-07 08:06                                                  
+Recursos:     HIERRO:4800 MADERA:11200 ORO:36250                                
+Coronas:      255                                                               
+Transaccion:  M+A                                                               
+----------------------------38------------------------------                    
+Reino:        Piscis                                                            
+Fecha y hora: 2018-08-07 08:06                                                  
+Recursos:     HIERRO:3750 MADERA:10500 ORO:32750                                
+Coronas:      430                                                               
+Transaccion:  TRP                                                               
+----------------------------39------------------------------                    
+Reino:        Capricornio                                                       
+Fecha y hora: 2018-08-07 08:06                                                  
+Recursos:     HIERRO:6200 MADERA:24900 ORO:9060                                 
+Coronas:      330                                                               
+Transaccion:  M+A                                                               
+----------------------------40------------------------------                    
+Reino:        Capricornio                                                       
+Fecha y hora: 2018-08-07 08:06                                                  
+Recursos:     HIERRO:8540 MADERA:33805 ORO:27235                                
+Coronas:      332                                                               
+Transaccion:  ATK                                                               
+----------------------------41------------------------------                    
+Reino:        Sagitario                                                         
+Fecha y hora: 2018-08-07 08:06                                                  
+Recursos:     HIERRO:8800 MADERA:33700 ORO:5050                                 
+Coronas:      75                                                                
+Transaccion:  M+A                                                               
+----------------------------42------------------------------                    
+Reino:        Sagitario                                                         
+Fecha y hora: 2018-08-07 08:06                                                  
+Recursos:     HIERRO:13025 MADERA:42735 ORO:26605                               
+Coronas:      77                                                                
+Transaccion:  ATK                                                               
+----------------------------43------------------------------                    
+Reino:        Escorpio                                                          
+Fecha y hora: 2018-08-07 08:07                                                  
+Recursos:     HIERRO:775 MADERA:3365 ORO:10645                                  
+Coronas:      150                                                               
+Transaccion:  TRP                                                               
+----------------------------44------------------------------                    
+Reino:        Escorpio                                                          
+Fecha y hora: 2018-08-07 08:07                                                  
+Recursos:     HIERRO:4578 MADERA:16300 ORO:44667                                
+Coronas:      152                                                               
+Transaccion:  ATK                                                               
+----------------------------45------------------------------                    
+Reino:        Libra                                                             
+Fecha y hora: 2018-08-07 08:07                                                  
+Recursos:     HIERRO:11116 MADERA:39178 ORO:44043                               
+Coronas:      272                                                               
+Transaccion:  ATK                                                               
+----------------------------46------------------------------                    
+Reino:        Libra                                                             
+Fecha y hora: 2018-08-07 08:07                                                  
+Recursos:     HIERRO:10966 MADERA:39078 ORO:42043                               
+Coronas:      312                                                               
+Transaccion:  M+D                                                               
+----------------------------47------------------------------                    
+Reino:        Virgo                                                             
+Fecha y hora: 2018-08-07 08:07                                                  
+Recursos:     HIERRO:3700 MADERA:16800 ORO:6120                                 
+Coronas:      205                                                               
+Transaccion:  M+D                                                               
+----------------------------48------------------------------                    
+Reino:        Virgo                                                             
+Fecha y hora: 2018-08-07 08:07                                                  
+Recursos:     HIERRO:1700 MADERA:16800 ORO:13980                                
+Coronas:      215                                                               
+Transaccion:  VTA                                                               
+----------------------------49------------------------------                    
+Reino:        Leo                                                               
+Fecha y hora: 2018-08-07 08:07                                                  
+Recursos:     HIERRO:7760 MADERA:30795 ORO:9325                                 
+Coronas:      467                                                               
+Transaccion:  ATK                                                               
+----------------------------50------------------------------                    
+Reino:        Leo                                                               
+Fecha y hora: 2018-08-07 08:07                                                  
+Recursos:     HIERRO:9775 MADERA:37230 ORO:30263                                
+Coronas:      469                                                               
+Transaccion:  ATK                                                               
+----------------------------51------------------------------                    
+Reino:        Geminis                                                           
+Fecha y hora: 2018-08-07 08:07                                                  
+Recursos:     HIERRO:885 MADERA:3165 ORO:10313                                  
+Coronas:      425                                                               
+Transaccion:  M+A                                                               
+----------------------------52------------------------------                    
+Reino:        Geminis                                                           
+Fecha y hora: 2018-08-07 08:07                                                  
+Recursos:     HIERRO:885 MADERA:3165 ORO:6519                                   
+Coronas:      427                                                               
+Transaccion:  ATK                                                               
+----------------------------53------------------------------                    
+Reino:        Tauro                                                             
+Fecha y hora: 2018-08-07 08:08                                                  
+Recursos:     HIERRO:9700 MADERA:19800 ORO:36000                                
+Coronas:      80                                                                
+Transaccion:  M+D                                                               
+----------------------------54------------------------------                    
+Reino:        Aries                                                             
+Fecha y hora: 2018-08-07 08:08                                                  
 Recursos:     HIERRO:3405 MADERA:18920 ORO:42387                                
 Coronas:      337                                                               
 Transaccion:  ATK                                                               
-----------------------------54------------------------------                    
+----------------------------55------------------------------                    
 Reino:        Aries                                                             
-Fecha y hora: 2018-08-05 12:39                                                  
+Fecha y hora: 2018-08-07 08:08                                                  
 Recursos:     HIERRO:3405 MADERA:18920 ORO:28971                                
 Coronas:      339                                                               
 Transaccion:  ATK                                                               
-----------------------------55------------------------------                    
+----------------------------56------------------------------                    
 Reino:        Piscis                                                            
-Fecha y hora: 2018-08-05 12:39                                                  
+Fecha y hora: 2018-08-07 08:08                                                  
 Recursos:     HIERRO:3550 MADERA:10200 ORO:31250                                
 Coronas:      435                                                               
 Transaccion:  M+A                                                               
-----------------------------56------------------------------                    
+----------------------------57------------------------------                    
 Reino:        Piscis                                                            
-Fecha y hora: 2018-08-05 12:40                                                  
+Fecha y hora: 2018-08-07 08:08                                                  
 Recursos:     HIERRO:4881 MADERA:14727 ORO:42508                                
 Coronas:      437                                                               
 Transaccion:  ATK                                                               
@@ -1265,13 +1629,13 @@ PL/SQL procedure successfully completed.
 
 SQL> execute BOE.MONITOREAR;
 -------------ORO--------------                                                  
-Reserva: 5231330                                                                
+Reserva: 5233330                                                                
 Precio   1                                                                      
 -----------HIERRO-------------                                                  
-Reserva: 2069350                                                                
+Reserva: 2069500                                                                
 Precio   3.92                                                                   
 -----------MADERA-------------                                                  
-Reserva: 2027400                                                                
+Reserva: 2027500                                                                
 Precio   2.01                                                                   
 --------------------------RANKING---------------------------                    
 -----------------------------1------------------------------                    
@@ -1312,13 +1676,13 @@ Oro coronas:       3640
 Total:             52686.365                                                    
 -----------------------------5------------------------------                    
 Reino:             Tauro                                                        
-Oro:               30244                                                        
+Oro:               28244                                                        
 Oro tropas:        0                                                            
-Oro recursos:      18721.5                                                      
+Oro recursos:      18327                                                        
 Oro PTS ataque:    0                                                            
-Oro PTS defensa:   450                                                          
-Oro coronas:       1600                                                         
-Total:             51015.5                                                      
+Oro PTS defensa:   945                                                          
+Oro coronas:       2000                                                         
+Total:             49516                                                        
 -----------------------------6------------------------------                    
 Reino:             Leo                                                          
 Oro:               11829                                                        
@@ -1385,451 +1749,457 @@ Total:             7847.01
 -------------------------BITACORA---------------------------                    
 -----------------------------1------------------------------                    
 Reino:        Acuario                                                           
-Fecha y hora: 2018-08-05 12:33                                                  
+Fecha y hora: 2018-08-07 08:02                                                  
 Recursos:     HIERRO:10000 MADERA:40000 ORO:0                                   
 Coronas:      5                                                                 
 Transaccion:  CMP                                                               
 -----------------------------2------------------------------                    
 Reino:        Capricornio                                                       
-Fecha y hora: 2018-08-05 12:33                                                  
+Fecha y hora: 2018-08-07 08:02                                                  
 Recursos:     HIERRO:10000 MADERA:32000 ORO:15760                               
 Coronas:      5                                                                 
 Transaccion:  CMP                                                               
 -----------------------------3------------------------------                    
 Reino:        Sagitario                                                         
-Fecha y hora: 2018-08-05 12:33                                                  
+Fecha y hora: 2018-08-07 08:02                                                  
 Recursos:     HIERRO:9700 MADERA:19800 ORO:39000                                
 Coronas:      50                                                                
 Transaccion:  TRP                                                               
 -----------------------------4------------------------------                    
 Reino:        Sagitario                                                         
-Fecha y hora: 2018-08-05 12:34                                                  
+Fecha y hora: 2018-08-07 08:02                                                  
 Recursos:     HIERRO:9700 MADERA:34800 ORO:8550                                 
 Coronas:      55                                                                
 Transaccion:  CMP                                                               
 -----------------------------5------------------------------                    
 Reino:        Escorpio                                                          
-Fecha y hora: 2018-08-05 12:34                                                  
+Fecha y hora: 2018-08-07 08:02                                                  
 Recursos:     HIERRO:8400 MADERA:16000 ORO:39200                                
 Coronas:      80                                                                
 Transaccion:  TRP                                                               
 -----------------------------6------------------------------                    
 Reino:        Escorpio                                                          
-Fecha y hora: 2018-08-05 12:34                                                  
+Fecha y hora: 2018-08-07 08:02                                                  
 Recursos:     HIERRO:6900 MADERA:14500 ORO:37700                                
 Coronas:      110                                                               
 Transaccion:  TRP                                                               
 -----------------------------7------------------------------                    
 Reino:        Libra                                                             
-Fecha y hora: 2018-08-05 12:34                                                  
+Fecha y hora: 2018-08-07 08:02                                                  
 Recursos:     HIERRO:7000 MADERA:16500 ORO:38750                                
 Coronas:      150                                                               
 Transaccion:  TRP                                                               
 -----------------------------8------------------------------                    
 Reino:        Libra                                                             
-Fecha y hora: 2018-08-05 12:34                                                  
+Fecha y hora: 2018-08-07 08:02                                                  
 Recursos:     HIERRO:3800 MADERA:12500 ORO:30750                                
 Coronas:      210                                                               
 Transaccion:  DEF                                                               
 -----------------------------9------------------------------                    
 Reino:        Virgo                                                             
-Fecha y hora: 2018-08-05 12:34                                                  
+Fecha y hora: 2018-08-07 08:02                                                  
 Recursos:     HIERRO:16000 MADERA:20000 ORO:16120                               
 Coronas:      5                                                                 
 Transaccion:  CMP                                                               
 ----------------------------10------------------------------                    
 Reino:        Virgo                                                             
-Fecha y hora: 2018-08-05 12:34                                                  
+Fecha y hora: 2018-08-07 08:02                                                  
 Recursos:     HIERRO:4000 MADERA:17000 ORO:10120                                
 Coronas:      125                                                               
 Transaccion:  DEF                                                               
 ----------------------------11------------------------------                    
 Reino:        Leo                                                               
-Fecha y hora: 2018-08-05 12:34                                                  
+Fecha y hora: 2018-08-07 08:03                                                  
 Recursos:     HIERRO:8200 MADERA:18800 ORO:34000                                
 Coronas:      300                                                               
 Transaccion:  TRP                                                               
 ----------------------------12------------------------------                    
 Reino:        Leo                                                               
-Fecha y hora: 2018-08-05 12:34                                                  
+Fecha y hora: 2018-08-07 08:03                                                  
 Recursos:     HIERRO:6200 MADERA:16800 ORO:32000                                
 Coronas:      340                                                               
 Transaccion:  TRP                                                               
 ----------------------------13------------------------------                    
 Reino:        Cancer                                                            
-Fecha y hora: 2018-08-05 12:34                                                  
+Fecha y hora: 2018-08-07 08:03                                                  
 Recursos:     HIERRO:6000 MADERA:20000 ORO:55880                                
 Coronas:      10                                                                
 Transaccion:  VTA                                                               
 ----------------------------14------------------------------                    
 Reino:        Geminis                                                           
-Fecha y hora: 2018-08-05 12:34                                                  
+Fecha y hora: 2018-08-07 08:03                                                  
 Recursos:     HIERRO:8000 MADERA:15000 ORO:39000                                
 Coronas:      100                                                               
 Transaccion:  TRP                                                               
 ----------------------------15------------------------------                    
 Reino:        Geminis                                                           
-Fecha y hora: 2018-08-05 12:34                                                  
+Fecha y hora: 2018-08-07 08:03                                                  
 Recursos:     HIERRO:5000 MADERA:11500 ORO:37750                                
 Coronas:      250                                                               
 Transaccion:  TRP                                                               
 ----------------------------16------------------------------                    
-Reino:        Aries                                                             
-Fecha y hora: 2018-08-05 12:35                                                  
-Recursos:     HIERRO:6400 MADERA:15800 ORO:38500                                
-Coronas:      180                                                               
-Transaccion:  TRP                                                               
-----------------------------17------------------------------                    
-Reino:        Piscis                                                            
-Fecha y hora: 2018-08-05 12:35                                                  
-Recursos:     HIERRO:8000 MADERA:15000 ORO:39000                                
-Coronas:      100                                                               
-Transaccion:  TRP                                                               
-----------------------------18------------------------------                    
-Reino:        Piscis                                                            
-Fecha y hora: 2018-08-05 12:35                                                  
-Recursos:     HIERRO:5000 MADERA:11500 ORO:37750                                
-Coronas:      250                                                               
-Transaccion:  TRP                                                               
-----------------------------19------------------------------                    
-Reino:        Aries                                                             
-Fecha y hora: 2018-08-05 12:35                                                  
-Recursos:     HIERRO:6200 MADERA:15500 ORO:37000                                
-Coronas:      185                                                               
-Transaccion:  M+A                                                               
-----------------------------20------------------------------                    
-Reino:        Capricornio                                                       
-Fecha y hora: 2018-08-05 12:36                                                  
-Recursos:     HIERRO:7600 MADERA:26000 ORO:14560                                
-Coronas:      125                                                               
-Transaccion:  TRP                                                               
-----------------------------21------------------------------                    
-Reino:        Capricornio                                                       
-Fecha y hora: 2018-08-05 12:36                                                  
-Recursos:     HIERRO:6400 MADERA:25200 ORO:10560                                
-Coronas:      325                                                               
-Transaccion:  TRP                                                               
-----------------------------22------------------------------                    
-Reino:        Sagitario                                                         
-Fecha y hora: 2018-08-05 12:36                                                  
-Recursos:     HIERRO:9200 MADERA:34300 ORO:8050                                 
-Coronas:      65                                                                
-Transaccion:  TRP                                                               
-----------------------------23------------------------------                    
-Reino:        Sagitario                                                         
-Fecha y hora: 2018-08-05 12:36                                                  
-Recursos:     HIERRO:9000 MADERA:34000 ORO:6550                                 
-Coronas:      70                                                                
-Transaccion:  M+A                                                               
-----------------------------24------------------------------                    
-Reino:        Escorpio                                                          
-Fecha y hora: 2018-08-05 12:36                                                  
-Recursos:     HIERRO:6700 MADERA:14200 ORO:36200                                
-Coronas:      115                                                               
-Transaccion:  M+A                                                               
-----------------------------25------------------------------                    
-Reino:        Escorpio                                                          
-Fecha y hora: 2018-08-05 12:36                                                  
-Recursos:     HIERRO:6500 MADERA:13900 ORO:34700                                
-Coronas:      120                                                               
-Transaccion:  M+A                                                               
-----------------------------26------------------------------                    
-Reino:        Libra                                                             
-Fecha y hora: 2018-08-05 12:36                                                  
-Recursos:     HIERRO:2800 MADERA:11500 ORO:29750                                
-Coronas:      230                                                               
-Transaccion:  TRP                                                               
-----------------------------27------------------------------                    
-Reino:        Libra                                                             
-Fecha y hora: 2018-08-05 12:36                                                  
-Recursos:     HIERRO:2650 MADERA:11400 ORO:27750                                
-Coronas:      270                                                               
-Transaccion:  M+D                                                               
-----------------------------28------------------------------                    
-Reino:        Virgo                                                             
-Fecha y hora: 2018-08-05 12:36                                                  
-Recursos:     HIERRO:3850 MADERA:16900 ORO:8120                                 
-Coronas:      165                                                               
-Transaccion:  M+D                                                               
-----------------------------29------------------------------                    
-Reino:        Leo                                                               
-Fecha y hora: 2018-08-05 12:36                                                  
-Recursos:     HIERRO:3800 MADERA:14000 ORO:31000                                
-Coronas:      460                                                               
-Transaccion:  TRP                                                               
-----------------------------30------------------------------                    
-Reino:        Leo                                                               
-Fecha y hora: 2018-08-05 12:36                                                  
-Recursos:     HIERRO:3600 MADERA:13700 ORO:29500                                
-Coronas:      465                                                               
-Transaccion:  M+A                                                               
-----------------------------31------------------------------                    
-Reino:        Cancer                                                            
-Fecha y hora: 2018-08-05 12:37                                                  
-Recursos:     HIERRO:5850 MADERA:19900 ORO:53880                                
-Coronas:      50                                                                
-Transaccion:  M+D                                                               
-----------------------------32------------------------------                    
-Reino:        Geminis                                                           
-Fecha y hora: 2018-08-05 12:37                                                  
-Recursos:     HIERRO:4000 MADERA:10500 ORO:36750                                
-Coronas:      270                                                               
-Transaccion:  TRP                                                               
-----------------------------33------------------------------                    
-Reino:        Geminis                                                           
-Fecha y hora: 2018-08-05 12:37                                                  
-Recursos:     HIERRO:3100 MADERA:9900 ORO:33750                                 
-Coronas:      420                                                               
-Transaccion:  TRP                                                               
-----------------------------34------------------------------                    
-Reino:        Aries                                                             
-Fecha y hora: 2018-08-05 12:37                                                  
-Recursos:     HIERRO:3800 MADERA:9500 ORO:35800                                 
-Coronas:      305                                                               
-Transaccion:  TRP                                                               
-----------------------------35------------------------------                    
-Reino:        Aries                                                             
-Fecha y hora: 2018-08-05 12:37                                                  
-Recursos:     HIERRO:2300 MADERA:8000 ORO:34300                                 
-Coronas:      335                                                               
-Transaccion:  TRP                                                               
-----------------------------36------------------------------                    
-Reino:        Piscis                                                            
-Fecha y hora: 2018-08-05 12:37                                                  
-Recursos:     HIERRO:4800 MADERA:11200 ORO:36250                                
-Coronas:      255                                                               
-Transaccion:  M+A                                                               
-----------------------------37------------------------------                    
-Reino:        Piscis                                                            
-Fecha y hora: 2018-08-05 12:37                                                  
-Recursos:     HIERRO:3750 MADERA:10500 ORO:32750                                
-Coronas:      430                                                               
-Transaccion:  TRP                                                               
-----------------------------38------------------------------                    
-Reino:        Capricornio                                                       
-Fecha y hora: 2018-08-05 12:38                                                  
-Recursos:     HIERRO:6200 MADERA:24900 ORO:9060                                 
-Coronas:      330                                                               
-Transaccion:  M+A                                                               
-----------------------------39------------------------------                    
-Reino:        Capricornio                                                       
-Fecha y hora: 2018-08-05 12:38                                                  
-Recursos:     HIERRO:8540 MADERA:33805 ORO:27235                                
-Coronas:      332                                                               
-Transaccion:  ATK                                                               
-----------------------------40------------------------------                    
-Reino:        Sagitario                                                         
-Fecha y hora: 2018-08-05 12:38                                                  
-Recursos:     HIERRO:8800 MADERA:33700 ORO:5050                                 
-Coronas:      75                                                                
-Transaccion:  M+A                                                               
-----------------------------41------------------------------                    
-Reino:        Sagitario                                                         
-Fecha y hora: 2018-08-05 12:38                                                  
-Recursos:     HIERRO:13025 MADERA:42735 ORO:26605                               
-Coronas:      77                                                                
-Transaccion:  ATK                                                               
-----------------------------42------------------------------                    
-Reino:        Escorpio                                                          
-Fecha y hora: 2018-08-05 12:38                                                  
-Recursos:     HIERRO:775 MADERA:3365 ORO:10645                                  
-Coronas:      150                                                               
-Transaccion:  TRP                                                               
-----------------------------43------------------------------                    
-Reino:        Escorpio                                                          
-Fecha y hora: 2018-08-05 12:38                                                  
-Recursos:     HIERRO:4578 MADERA:16300 ORO:44667                                
-Coronas:      152                                                               
-Transaccion:  ATK                                                               
-----------------------------44------------------------------                    
-Reino:        Libra                                                             
-Fecha y hora: 2018-08-05 12:38                                                  
-Recursos:     HIERRO:11116 MADERA:39178 ORO:44043                               
-Coronas:      272                                                               
-Transaccion:  ATK                                                               
-----------------------------45------------------------------                    
-Reino:        Libra                                                             
-Fecha y hora: 2018-08-05 12:38                                                  
-Recursos:     HIERRO:10966 MADERA:39078 ORO:42043                               
-Coronas:      312                                                               
-Transaccion:  M+D                                                               
-----------------------------46------------------------------                    
-Reino:        Virgo                                                             
-Fecha y hora: 2018-08-05 12:39                                                  
-Recursos:     HIERRO:3700 MADERA:16800 ORO:6120                                 
-Coronas:      205                                                               
-Transaccion:  M+D                                                               
-----------------------------47------------------------------                    
-Reino:        Virgo                                                             
-Fecha y hora: 2018-08-05 12:39                                                  
-Recursos:     HIERRO:1700 MADERA:16800 ORO:13980                                
-Coronas:      215                                                               
-Transaccion:  VTA                                                               
-----------------------------48------------------------------                    
-Reino:        Leo                                                               
-Fecha y hora: 2018-08-05 12:39                                                  
-Recursos:     HIERRO:7760 MADERA:30795 ORO:9325                                 
-Coronas:      467                                                               
-Transaccion:  ATK                                                               
-----------------------------49------------------------------                    
-Reino:        Leo                                                               
-Fecha y hora: 2018-08-05 12:39                                                  
-Recursos:     HIERRO:9775 MADERA:37230 ORO:30263                                
-Coronas:      469                                                               
-Transaccion:  ATK                                                               
-----------------------------50------------------------------                    
-Reino:        Geminis                                                           
-Fecha y hora: 2018-08-05 12:39                                                  
-Recursos:     HIERRO:885 MADERA:3165 ORO:10313                                  
-Coronas:      425                                                               
-Transaccion:  M+A                                                               
-----------------------------51------------------------------                    
-Reino:        Geminis                                                           
-Fecha y hora: 2018-08-05 12:39                                                  
-Recursos:     HIERRO:885 MADERA:3165 ORO:6519                                   
-Coronas:      427                                                               
-Transaccion:  ATK                                                               
-----------------------------52------------------------------                    
 Reino:        Tauro                                                             
-Fecha y hora: 2018-08-05 12:39                                                  
+Fecha y hora: 2018-08-07 08:03                                                  
 Recursos:     HIERRO:9850 MADERA:19900 ORO:38000                                
 Coronas:      40                                                                
 Transaccion:  M+D                                                               
-----------------------------53------------------------------                    
+----------------------------17------------------------------                    
 Reino:        Aries                                                             
-Fecha y hora: 2018-08-05 12:39                                                  
+Fecha y hora: 2018-08-07 08:03                                                  
+Recursos:     HIERRO:6400 MADERA:15800 ORO:38500                                
+Coronas:      180                                                               
+Transaccion:  TRP                                                               
+----------------------------18------------------------------                    
+Reino:        Aries                                                             
+Fecha y hora: 2018-08-07 08:04                                                  
+Recursos:     HIERRO:6200 MADERA:15500 ORO:37000                                
+Coronas:      185                                                               
+Transaccion:  M+A                                                               
+----------------------------19------------------------------                    
+Reino:        Piscis                                                            
+Fecha y hora: 2018-08-07 08:04                                                  
+Recursos:     HIERRO:8000 MADERA:15000 ORO:39000                                
+Coronas:      100                                                               
+Transaccion:  TRP                                                               
+----------------------------20------------------------------                    
+Reino:        Piscis                                                            
+Fecha y hora: 2018-08-07 08:04                                                  
+Recursos:     HIERRO:5000 MADERA:11500 ORO:37750                                
+Coronas:      250                                                               
+Transaccion:  TRP                                                               
+----------------------------21------------------------------                    
+Reino:        Capricornio                                                       
+Fecha y hora: 2018-08-07 08:04                                                  
+Recursos:     HIERRO:7600 MADERA:26000 ORO:14560                                
+Coronas:      125                                                               
+Transaccion:  TRP                                                               
+----------------------------22------------------------------                    
+Reino:        Capricornio                                                       
+Fecha y hora: 2018-08-07 08:04                                                  
+Recursos:     HIERRO:6400 MADERA:25200 ORO:10560                                
+Coronas:      325                                                               
+Transaccion:  TRP                                                               
+----------------------------23------------------------------                    
+Reino:        Sagitario                                                         
+Fecha y hora: 2018-08-07 08:04                                                  
+Recursos:     HIERRO:9200 MADERA:34300 ORO:8050                                 
+Coronas:      65                                                                
+Transaccion:  TRP                                                               
+----------------------------24------------------------------                    
+Reino:        Sagitario                                                         
+Fecha y hora: 2018-08-07 08:04                                                  
+Recursos:     HIERRO:9000 MADERA:34000 ORO:6550                                 
+Coronas:      70                                                                
+Transaccion:  M+A                                                               
+----------------------------25------------------------------                    
+Reino:        Escorpio                                                          
+Fecha y hora: 2018-08-07 08:05                                                  
+Recursos:     HIERRO:6700 MADERA:14200 ORO:36200                                
+Coronas:      115                                                               
+Transaccion:  M+A                                                               
+----------------------------26------------------------------                    
+Reino:        Escorpio                                                          
+Fecha y hora: 2018-08-07 08:05                                                  
+Recursos:     HIERRO:6500 MADERA:13900 ORO:34700                                
+Coronas:      120                                                               
+Transaccion:  M+A                                                               
+----------------------------27------------------------------                    
+Reino:        Libra                                                             
+Fecha y hora: 2018-08-07 08:05                                                  
+Recursos:     HIERRO:2800 MADERA:11500 ORO:29750                                
+Coronas:      230                                                               
+Transaccion:  TRP                                                               
+----------------------------28------------------------------                    
+Reino:        Libra                                                             
+Fecha y hora: 2018-08-07 08:05                                                  
+Recursos:     HIERRO:2650 MADERA:11400 ORO:27750                                
+Coronas:      270                                                               
+Transaccion:  M+D                                                               
+----------------------------29------------------------------                    
+Reino:        Virgo                                                             
+Fecha y hora: 2018-08-07 08:05                                                  
+Recursos:     HIERRO:3850 MADERA:16900 ORO:8120                                 
+Coronas:      165                                                               
+Transaccion:  M+D                                                               
+----------------------------30------------------------------                    
+Reino:        Leo                                                               
+Fecha y hora: 2018-08-07 08:05                                                  
+Recursos:     HIERRO:3800 MADERA:14000 ORO:31000                                
+Coronas:      460                                                               
+Transaccion:  TRP                                                               
+----------------------------31------------------------------                    
+Reino:        Leo                                                               
+Fecha y hora: 2018-08-07 08:05                                                  
+Recursos:     HIERRO:3600 MADERA:13700 ORO:29500                                
+Coronas:      465                                                               
+Transaccion:  M+A                                                               
+----------------------------32------------------------------                    
+Reino:        Cancer                                                            
+Fecha y hora: 2018-08-07 08:05                                                  
+Recursos:     HIERRO:5850 MADERA:19900 ORO:53880                                
+Coronas:      50                                                                
+Transaccion:  M+D                                                               
+----------------------------33------------------------------                    
+Reino:        Geminis                                                           
+Fecha y hora: 2018-08-07 08:05                                                  
+Recursos:     HIERRO:4000 MADERA:10500 ORO:36750                                
+Coronas:      270                                                               
+Transaccion:  TRP                                                               
+----------------------------34------------------------------                    
+Reino:        Geminis                                                           
+Fecha y hora: 2018-08-07 08:05                                                  
+Recursos:     HIERRO:3100 MADERA:9900 ORO:33750                                 
+Coronas:      420                                                               
+Transaccion:  TRP                                                               
+----------------------------35------------------------------                    
+Reino:        Aries                                                             
+Fecha y hora: 2018-08-07 08:06                                                  
+Recursos:     HIERRO:3800 MADERA:9500 ORO:35800                                 
+Coronas:      305                                                               
+Transaccion:  TRP                                                               
+----------------------------36------------------------------                    
+Reino:        Aries                                                             
+Fecha y hora: 2018-08-07 08:06                                                  
+Recursos:     HIERRO:2300 MADERA:8000 ORO:34300                                 
+Coronas:      335                                                               
+Transaccion:  TRP                                                               
+----------------------------37------------------------------                    
+Reino:        Piscis                                                            
+Fecha y hora: 2018-08-07 08:06                                                  
+Recursos:     HIERRO:4800 MADERA:11200 ORO:36250                                
+Coronas:      255                                                               
+Transaccion:  M+A                                                               
+----------------------------38------------------------------                    
+Reino:        Piscis                                                            
+Fecha y hora: 2018-08-07 08:06                                                  
+Recursos:     HIERRO:3750 MADERA:10500 ORO:32750                                
+Coronas:      430                                                               
+Transaccion:  TRP                                                               
+----------------------------39------------------------------                    
+Reino:        Capricornio                                                       
+Fecha y hora: 2018-08-07 08:06                                                  
+Recursos:     HIERRO:6200 MADERA:24900 ORO:9060                                 
+Coronas:      330                                                               
+Transaccion:  M+A                                                               
+----------------------------40------------------------------                    
+Reino:        Capricornio                                                       
+Fecha y hora: 2018-08-07 08:06                                                  
+Recursos:     HIERRO:8540 MADERA:33805 ORO:27235                                
+Coronas:      332                                                               
+Transaccion:  ATK                                                               
+----------------------------41------------------------------                    
+Reino:        Sagitario                                                         
+Fecha y hora: 2018-08-07 08:06                                                  
+Recursos:     HIERRO:8800 MADERA:33700 ORO:5050                                 
+Coronas:      75                                                                
+Transaccion:  M+A                                                               
+----------------------------42------------------------------                    
+Reino:        Sagitario                                                         
+Fecha y hora: 2018-08-07 08:06                                                  
+Recursos:     HIERRO:13025 MADERA:42735 ORO:26605                               
+Coronas:      77                                                                
+Transaccion:  ATK                                                               
+----------------------------43------------------------------                    
+Reino:        Escorpio                                                          
+Fecha y hora: 2018-08-07 08:07                                                  
+Recursos:     HIERRO:775 MADERA:3365 ORO:10645                                  
+Coronas:      150                                                               
+Transaccion:  TRP                                                               
+----------------------------44------------------------------                    
+Reino:        Escorpio                                                          
+Fecha y hora: 2018-08-07 08:07                                                  
+Recursos:     HIERRO:4578 MADERA:16300 ORO:44667                                
+Coronas:      152                                                               
+Transaccion:  ATK                                                               
+----------------------------45------------------------------                    
+Reino:        Libra                                                             
+Fecha y hora: 2018-08-07 08:07                                                  
+Recursos:     HIERRO:11116 MADERA:39178 ORO:44043                               
+Coronas:      272                                                               
+Transaccion:  ATK                                                               
+----------------------------46------------------------------                    
+Reino:        Libra                                                             
+Fecha y hora: 2018-08-07 08:07                                                  
+Recursos:     HIERRO:10966 MADERA:39078 ORO:42043                               
+Coronas:      312                                                               
+Transaccion:  M+D                                                               
+----------------------------47------------------------------                    
+Reino:        Virgo                                                             
+Fecha y hora: 2018-08-07 08:07                                                  
+Recursos:     HIERRO:3700 MADERA:16800 ORO:6120                                 
+Coronas:      205                                                               
+Transaccion:  M+D                                                               
+----------------------------48------------------------------                    
+Reino:        Virgo                                                             
+Fecha y hora: 2018-08-07 08:07                                                  
+Recursos:     HIERRO:1700 MADERA:16800 ORO:13980                                
+Coronas:      215                                                               
+Transaccion:  VTA                                                               
+----------------------------49------------------------------                    
+Reino:        Leo                                                               
+Fecha y hora: 2018-08-07 08:07                                                  
+Recursos:     HIERRO:7760 MADERA:30795 ORO:9325                                 
+Coronas:      467                                                               
+Transaccion:  ATK                                                               
+----------------------------50------------------------------                    
+Reino:        Leo                                                               
+Fecha y hora: 2018-08-07 08:07                                                  
+Recursos:     HIERRO:9775 MADERA:37230 ORO:30263                                
+Coronas:      469                                                               
+Transaccion:  ATK                                                               
+----------------------------51------------------------------                    
+Reino:        Geminis                                                           
+Fecha y hora: 2018-08-07 08:07                                                  
+Recursos:     HIERRO:885 MADERA:3165 ORO:10313                                  
+Coronas:      425                                                               
+Transaccion:  M+A                                                               
+----------------------------52------------------------------                    
+Reino:        Geminis                                                           
+Fecha y hora: 2018-08-07 08:07                                                  
+Recursos:     HIERRO:885 MADERA:3165 ORO:6519                                   
+Coronas:      427                                                               
+Transaccion:  ATK                                                               
+----------------------------53------------------------------                    
+Reino:        Tauro                                                             
+Fecha y hora: 2018-08-07 08:08                                                  
+Recursos:     HIERRO:9700 MADERA:19800 ORO:36000                                
+Coronas:      80                                                                
+Transaccion:  M+D                                                               
+----------------------------54------------------------------                    
+Reino:        Aries                                                             
+Fecha y hora: 2018-08-07 08:08                                                  
 Recursos:     HIERRO:3405 MADERA:18920 ORO:42387                                
 Coronas:      337                                                               
 Transaccion:  ATK                                                               
-----------------------------54------------------------------                    
+----------------------------55------------------------------                    
 Reino:        Aries                                                             
-Fecha y hora: 2018-08-05 12:39                                                  
+Fecha y hora: 2018-08-07 08:08                                                  
 Recursos:     HIERRO:3405 MADERA:18920 ORO:28971                                
 Coronas:      339                                                               
 Transaccion:  ATK                                                               
-----------------------------55------------------------------                    
+----------------------------56------------------------------                    
 Reino:        Piscis                                                            
-Fecha y hora: 2018-08-05 12:39                                                  
+Fecha y hora: 2018-08-07 08:08                                                  
 Recursos:     HIERRO:3550 MADERA:10200 ORO:31250                                
 Coronas:      435                                                               
 Transaccion:  M+A                                                               
-----------------------------56------------------------------                    
+----------------------------57------------------------------                    
 Reino:        Piscis                                                            
-Fecha y hora: 2018-08-05 12:40                                                  
+Fecha y hora: 2018-08-07 08:08                                                  
 Recursos:     HIERRO:4881 MADERA:14727 ORO:42508                                
 Coronas:      437                                                               
 Transaccion:  ATK                                                               
-----------------------------57------------------------------                    
+----------------------------58------------------------------                    
 Reino:        Capricornio                                                       
-Fecha y hora: 2018-08-05 12:41                                                  
+Fecha y hora: 2018-08-07 08:08                                                  
 Recursos:     HIERRO:7040 MADERA:32305 ORO:25735                                
 Coronas:      362                                                               
 Transaccion:  TRP                                                               
-----------------------------58------------------------------                    
+----------------------------59------------------------------                    
 Reino:        Capricornio                                                       
-Fecha y hora: 2018-08-05 12:41                                                  
+Fecha y hora: 2018-08-07 08:08                                                  
 Recursos:     HIERRO:13394 MADERA:56505 ORO:44406                               
 Coronas:      364                                                               
 Transaccion:  ATK                                                               
-----------------------------59------------------------------                    
+----------------------------60------------------------------                    
 Reino:        Sagitario                                                         
-Fecha y hora: 2018-08-05 12:41                                                  
+Fecha y hora: 2018-08-07 08:08                                                  
 Recursos:     HIERRO:3809 MADERA:14457 ORO:6812                                 
 Coronas:      202                                                               
 Transaccion:  TRP                                                               
-----------------------------60------------------------------                    
+----------------------------61------------------------------                    
 Reino:        Sagitario                                                         
-Fecha y hora: 2018-08-05 12:41                                                  
+Fecha y hora: 2018-08-07 08:08                                                  
 Recursos:     HIERRO:12515 MADERA:51185 ORO:34676                               
 Coronas:      204                                                               
 Transaccion:  ATK                                                               
-----------------------------61------------------------------                    
+----------------------------62------------------------------                    
 Reino:        Escorpio                                                          
-Fecha y hora: 2018-08-05 12:41                                                  
+Fecha y hora: 2018-08-07 08:08                                                  
 Recursos:     HIERRO:3578 MADERA:15300 ORO:43667                                
 Coronas:      172                                                               
 Transaccion:  TRP                                                               
-----------------------------62------------------------------                    
+----------------------------63------------------------------                    
 Reino:        Escorpio                                                          
-Fecha y hora: 2018-08-05 12:41                                                  
+Fecha y hora: 2018-08-07 08:09                                                  
 Recursos:     HIERRO:3578 MADERA:15300 ORO:29867                                
 Coronas:      174                                                               
 Transaccion:  ATK                                                               
-----------------------------63------------------------------                    
+----------------------------64------------------------------                    
 Reino:        Libra                                                             
-Fecha y hora: 2018-08-05 12:42                                                  
+Fecha y hora: 2018-08-07 08:09                                                  
 Recursos:     HIERRO:9966 MADERA:38078 ORO:56637                                
 Coronas:      332                                                               
 Transaccion:  TRP                                                               
-----------------------------64------------------------------                    
+----------------------------65------------------------------                    
 Reino:        Libra                                                             
-Fecha y hora: 2018-08-05 12:42                                                  
+Fecha y hora: 2018-08-07 08:09                                                  
 Recursos:     HIERRO:12292 MADERA:48023 ORO:75051                               
 Coronas:      334                                                               
 Transaccion:  ATK                                                               
-----------------------------65------------------------------                    
+----------------------------66------------------------------                    
 Reino:        Virgo                                                             
-Fecha y hora: 2018-08-05 12:42                                                  
+Fecha y hora: 2018-08-07 08:09                                                  
 Recursos:     HIERRO:595 MADERA:10880 ORO:7259                                  
 Coronas:      220                                                               
 Transaccion:  CMP                                                               
-----------------------------66------------------------------                    
+----------------------------67------------------------------                    
 Reino:        Leo                                                               
-Fecha y hora: 2018-08-05 12:42                                                  
+Fecha y hora: 2018-08-07 08:09                                                  
 Recursos:     HIERRO:2821 MADERA:12631 ORO:8592                                 
 Coronas:      569                                                               
 Transaccion:  TRP                                                               
-----------------------------67------------------------------                    
+----------------------------68------------------------------                    
 Reino:        Leo                                                               
-Fecha y hora: 2018-08-05 12:42                                                  
+Fecha y hora: 2018-08-07 08:09                                                  
 Recursos:     HIERRO:3396 MADERA:14688 ORO:11829                                
 Coronas:      571                                                               
 Transaccion:  ATK                                                               
-----------------------------68------------------------------                    
+----------------------------69------------------------------                    
 Reino:        Cancer                                                            
-Fecha y hora: 2018-08-05 12:42                                                  
+Fecha y hora: 2018-08-07 08:09                                                  
 Recursos:     HIERRO:567 MADERA:2338 ORO:4600                                   
 Coronas:      90                                                                
 Transaccion:  M+D                                                               
-----------------------------69------------------------------                    
+----------------------------70------------------------------                    
 Reino:        Cancer                                                            
-Fecha y hora: 2018-08-05 12:42                                                  
+Fecha y hora: 2018-08-07 08:09                                                  
 Recursos:     HIERRO:567 MADERA:2338 ORO:2520                                   
 Coronas:      92                                                                
 Transaccion:  ATK                                                               
-----------------------------70------------------------------                    
+----------------------------71------------------------------                    
 Reino:        Geminis                                                           
-Fecha y hora: 2018-08-05 12:42                                                  
+Fecha y hora: 2018-08-07 08:09                                                  
 Recursos:     HIERRO:110 MADERA:808 ORO:782                                     
 Coronas:      432                                                               
 Transaccion:  M+A                                                               
-----------------------------71------------------------------                    
-Reino:        Tauro                                                             
-Fecha y hora: 2018-08-05 12:43                                                  
-Recursos:     HIERRO:3450 MADERA:11900 ORO:22000                                
-Coronas:      160                                                               
-Transaccion:  DEF                                                               
 ----------------------------72------------------------------                    
+Reino:        Tauro                                                             
+Fecha y hora: 2018-08-07 08:10                                                  
+Recursos:     HIERRO:3300 MADERA:11800 ORO:20000                                
+Coronas:      200                                                               
+Transaccion:  DEF                                                               
+----------------------------73------------------------------                    
 Reino:        Aries                                                             
-Fecha y hora: 2018-08-05 12:43                                                  
+Fecha y hora: 2018-08-07 08:10                                                  
 Recursos:     HIERRO:3477 MADERA:19445 ORO:28479                                
 Coronas:      341                                                               
 Transaccion:  ATK                                                               
-----------------------------73------------------------------                    
+----------------------------74------------------------------                    
 Reino:        Aries                                                             
-Fecha y hora: 2018-08-05 12:43                                                  
+Fecha y hora: 2018-08-07 08:10                                                  
 Recursos:     HIERRO:3477 MADERA:19445 ORO:19235                                
 Coronas:      343                                                               
 Transaccion:  ATK                                                               
-----------------------------74------------------------------                    
+----------------------------75------------------------------                    
 Reino:        Piscis                                                            
-Fecha y hora: 2018-08-05 12:43                                                  
+Fecha y hora: 2018-08-07 08:10                                                  
 Recursos:     HIERRO:7141 MADERA:27366 ORO:54011                                
 Coronas:      439                                                               
 Transaccion:  ATK                                                               
-----------------------------75------------------------------                    
+----------------------------76------------------------------                    
 Reino:        Piscis                                                            
-Fecha y hora: 2018-08-05 12:43                                                  
+Fecha y hora: 2018-08-07 08:10                                                  
 Recursos:     HIERRO:7141 MADERA:27366 ORO:37108                                
 Coronas:      441                                                               
 Transaccion:  ATK                                                               
