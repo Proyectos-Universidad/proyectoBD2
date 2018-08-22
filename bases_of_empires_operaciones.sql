@@ -215,13 +215,13 @@ CREATE OR REPLACE PACKAGE BODY BOE AS
                 UPDATE REINOS SET PTS_DEF = PNS_DEF WHERE UPPER(NOMBRE) = UPPER(P_REINO_DEF);
             
                 FOR REGIS IN CUR_TROPAS_D(P_REINO_DEF) loop
-                    IF(regis.nombre_tropa = 'CAÑON') THEN
+                    IF(regis.nombre_tropa = 'CANON') THEN
                             TRP_CAN := regis.cantidad - round((regis.cantidad*0.25),2);
             
                          UPDATE TROPAS_POR_REINOS
                              SET CANTIDAD = TRP_CAN
                              WHERE UPPER(NOMBRE_REINO) = UPPER(P_REINO_DEF) AND 
-                                     UPPER(NOMBRE_TROPA) = 'CAÑON';
+                                     UPPER(NOMBRE_TROPA) = 'CANON';
             
                     ELSIF(regis.nombre_tropa = 'TORRE') THEN
                         TRP_TOR := regis.cantidad - round((regis.cantidad*0.25),2);
@@ -705,7 +705,7 @@ CREATE OR REPLACE PACKAGE BODY BOE AS
         
             FOR REGIS IN CUR_TROPAS_A(P_REINO_ATQ) loop
                 IF(regis.nombre_tropa = 'ARQUERA') THEN
-                        PTS_TRP_A := PTS_TRP_A + round((regis.cantidad*20*0.8),2);
+                    PTS_TRP_A := PTS_TRP_A + round((regis.cantidad*20*0.8),2);
                 ELSIF(regis.nombre_tropa = 'PIQUERO') THEN
                     PTS_TRP_A := PTS_TRP_A + round((regis.cantidad*30*0.8),2);
                 ELSIF(regis.nombre_tropa = 'CABALLERO') THEN
@@ -718,7 +718,7 @@ CREATE OR REPLACE PACKAGE BODY BOE AS
             PNS_ATQ := ROUND((PNS_ATQ*0.6),2) + PTS_TRP_A;	
             
             FOR REGIS IN CUR_TROPAS_D(P_REINO_DEF) loop
-                IF(regis.nombre_tropa = 'CAÑON') THEN
+                IF(regis.nombre_tropa = 'CANON') THEN
                         PTS_TRP_D := PTS_TRP_D + round((regis.cantidad*450),2);
                 ELSIF(regis.nombre_tropa = 'TORRE') THEN
                     PTS_TRP_D := PTS_TRP_D + round((regis.cantidad*650),2);
@@ -726,11 +726,13 @@ CREATE OR REPLACE PACKAGE BODY BOE AS
             end loop;		
             
             PNS_DEF := ROUND((PNS_DEF*0.7),2) + PTS_TRP_D;
-        
+            DBMS_OUTPUT.PUT_LINE('Puntos de ataque: '||PNS_ATQ||' vs. '||'Puntos de defensa: '||PNS_DEF);
             IF (PNS_ATQ > PNS_DEF) THEN
                 ATAQUE_EXITOSO(P_REINO_ATQ, P_REINO_DEF);
+                DBMS_OUTPUT.PUT_LINE(P_REINO_ATQ||' ha ganado el ataque');
             ELSE
                 ATAQUE_FALLIDO(P_REINO_ATQ, P_REINO_DEF);
+                DBMS_OUTPUT.PUT_LINE(P_REINO_ATQ||' ha perdido el ataque');
             END IF;
             
             AGREGAR_CORONAS(P_REINO_ATQ,2);
